@@ -131,3 +131,98 @@ document.querySelectorAll('.ip-step').forEach(step => {
         step.classList.add('active');
     });
 });
+
+/* ── Process hover ── */
+document.querySelectorAll('.rp-step').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.rp-step').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+    });
+});
+
+/* ── RETIREMENT CALCULATOR ── */
+const fmt = (n) => {
+    if (n >= 10000000) return '₹' + (n / 10000000).toFixed(1) + ' Cr';
+    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + ' L';
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+};
+const fmtMo = (n) => {
+    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + 'L /mo';
+    return '₹' + Math.round(n).toLocaleString('en-IN') + ' /mo';
+};
+
+function calcRetirement() {
+    const curAge = +document.getElementById('r-age').value;
+    const retAge = +document.getElementById('r-ret').value;
+    const exp = +document.getElementById('r-exp').value;
+    const inf = +document.getElementById('r-inf').value / 100;
+    const roi = +document.getElementById('r-roi').value / 100;
+    const life = +document.getElementById('r-life').value;
+
+    document.getElementById('lbl-age').textContent = curAge;
+    document.getElementById('lbl-ret').textContent = retAge;
+    document.getElementById('lbl-exp').textContent = '₹' + exp.toLocaleString('en-IN');
+    document.getElementById('lbl-inf').textContent = (inf * 100).toFixed(1);
+    document.getElementById('lbl-roi').textContent = (roi * 100).toFixed(1);
+    document.getElementById('lbl-life').textContent = life;
+
+    const years = retAge - curAge;          // accumulation years
+    const retYrs = life - retAge;          // withdrawal years
+    if (years <= 0 || retYrs <= 0) return;
+
+    // Monthly expenses at retirement (inflated)
+    const retExp = exp * Math.pow(1 + inf, years);
+    const retExpAnnual = retExp * 12;
+
+    // Corpus needed (PV of inflation-adjusted annuity)
+    // Real rate approximation: r_real ≈ (1+roi)/(1+inf) - 1
+    const rReal = (1 + roi) / (1 + inf) - 1;
+    let corpus;
+    if (Math.abs(rReal) < 0.0001) {
+        corpus = retExpAnnual * retYrs;
+    } else {
+        corpus = retExpAnnual * (1 - Math.pow(1 + rReal, -retYrs)) / rReal;
+    }
+
+    // Monthly SIP needed (FV = corpus, n months, rate = monthly roi)
+    const rMo = roi / 12;
+    const nMo = years * 12;
+    const sip = corpus * rMo / (Math.pow(1 + rMo, nMo) - 1);
+
+    // Invested total & gain
+    const invested = sip * nMo;
+    const gain = corpus - invested;
+    const growthPct = Math.round((gain / corpus) * 100);
+
+    // Monthly post-retirement SWP income (using 4% SWP rule)
+    const swpMonthly = (corpus * 0.04) / 12;
+
+    // Update DOM
+    if (corpus >= 10000000) document.getElementById('res-corpus').innerHTML =
+        '₹<span>' + (corpus / 10000000).toFixed(1) + '</span> Crore';
+    else document.getElementById('res-corpus').innerHTML =
+        '₹<span>' + (corpus / 100000).toFixed(1) + '</span> Lakh';
+
+    document.getElementById('res-sub').textContent =
+        'To retire at ' + retAge + ' · ₹' + Math.round(exp / 1000) + 'K/month today · ' + retYrs + ' yrs income';
+
+    document.getElementById('res-invested').textContent = fmt(invested);
+    document.getElementById('res-gain').textContent = fmt(gain);
+    document.getElementById('res-sip').textContent = fmtMo(sip);
+    document.getElementById('res-income').textContent = fmtMo(swpMonthly);
+    document.getElementById('res-growth-pct').textContent = growthPct + '%';
+
+    // Update conic donut
+    const investedPct = Math.round((invested / corpus) * 100);
+    const gainPct = growthPct;
+    document.getElementById('cr-donut').style.background =
+        `conic-gradient(var(--red) 0% ${investedPct}%,var(--black) ${investedPct}% ${investedPct + gainPct}%,var(--gray-200) ${investedPct + gainPct}% 100%)`;
+}
+
+['r-age', 'r-ret', 'r-exp', 'r-inf', 'r-roi', 'r-life'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcRetirement);
+});
+
+if( $(".r-age").length > 0 ){
+    calcRetirement(); // init
+}
