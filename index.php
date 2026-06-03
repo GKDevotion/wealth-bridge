@@ -1,589 +1,774 @@
-<?php 
-include_once ('elements/header.php');
-?>
+<?php include_once ('elements/header.php'); ?>
 
-<style>
-    .zed-acedamy-header{
-        background-color: var(--zed-primary);
-        background-image: url("assets/img/background/zed-academy-background.webp");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: relative;
-        min-height: 70vh;
-        margin-top: 80px;
-    }
-
-    .divider-back {
-        width: 75px;
-        background-color: var(--zed-dark-text);
-    }
-
-    @media (max-width: 767.98px) {
-        .set-diamond-image{
-            display: none;
-        }
-
-    }
-</style>
-
-<section class="py-5 zed-acedamy-header">
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
     <div class="container">
-        <div class="row align-items-center" style="min-height: 50vh;">
-
-            <!-- Text Column -->
-            <div class="col-md-6 text-white align-items-center" data-aos="fade-up" data-aos-delay="800">
-                <p class="" style="font-size: 1.6rem">Zed Academy</p>
-                <h1 class="fw-bold h2 mb-5">Learn. Trade. <br>Success.</h1>
-                <div class="p-1 divider-back" data-aos="fade-up" data-aos-delay="800"></div>
-                <p class="mt-5 w-75" data-aos="fade-up" data-aos-delay="800">
-                Access structured video courses led by experienced professionals covering
-                technical analysis, risk management, trading strategies, market psychology and more.
+        <div class="hero-content">
+            <div class="hero-left">
+            <div class="hero-badge"><span></span> SEBI Registered Investment Advisor</div>
+                <h1 class="hero-title">
+                    Your Bridge to<br>
+                    <em>Financial</em><br>
+                    Freedom
+                </h1>
+                <p class="hero-desc">
+                    Expert-driven financial planning, wealth management and investment advisory services — personalized for every stage of your life.
                 </p>
-            </div>
-
-            <!-- Video Column -->
-            <div class="col-md-6 text-center position-relative d-none d-lg-block" data-aos="fade-up" data-aos-delay="800">
-                <img src="assets/img/sharpen-your-trading.webp" alt="Zed Capital Video" class="d-none img-fluid w-100"  data-aos="fade-up" data-aos-delay="800"/>
-                <a href="javascript:void(0)" class="position-absolute top-50 start-0 translate-middle" data-aos="fade-up" data-aos-delay="800" title="Play">
-                    <div class="p-0" data-aos="fade-up" data-aos-delay="800">
-                        <img src="assets/img/play-icon.webp" alt="Zed Capital Video" class="img-fluid w-25" />
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+                    <a href="#services" class="btn btn-outline" style="color:rgba(255,255,255,0.8); border-color:rgba(255,255,255,0.2)">Explore Services</a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <div class="hero-stat-num">₹2,400<span>Cr+</span></div>
+                        <div class="hero-stat-label">AUM Managed</div>
                     </div>
-                </a>
+                    <div class="hero-stat-divider"></div>
+                    <div>
+                        <div class="hero-stat-num">8,500<span>+</span></div>
+                        <div class="hero-stat-label">Happy Clients</div>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div>
+                        <div class="hero-stat-num">18<span>+</span></div>
+                        <div class="hero-stat-label">Years Experience</div>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div>
+                        <div class="hero-stat-num">98<span>%</span></div>
+                        <div class="hero-stat-label">Client Retention</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-float f1" data-aos="fade-left" data-aos-delay="400">
+                    <div class="float-label">Portfolio Return</div>
+                    <div class="float-value">+24.6<span>%</span></div>
+                    <div class="float-sub">YTD FY 2024-25</div>
+                </div>
+                <div class="hero-card-main" data-aos="fade-up" data-aos-delay="200">
+                    <div class="hero-card-header">
+                        <div class="hero-card-title">Portfolio Allocation</div>
+                        <div class="hero-card-badge">▲ Active</div>
+                    </div>
+                    <div class="portfolio-rows">
+                        <div class="portfolio-row">
+                            <div class="portfolio-icon" style="background:rgba(59,130,246,0.15); color:#3b82f6">📊</div>
+                            <div>
+                                <div class="portfolio-name">Equity Funds</div>
+                                <div class="portfolio-cat">High Growth</div>
+                            </div>
+                            <div class="portfolio-bar-wrap">
+                                <div class="portfolio-bar-bg"><div class="portfolio-bar" style="width:40%; background:#3b82f6"></div></div>
+                                <div class="portfolio-pct">40%</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-row">
+                            <div class="portfolio-icon" style="background:rgba(200,16,46,0.15); color:var(--red)">🏠</div>
+                            <div>
+                                <div class="portfolio-name">Real Estate</div>
+                                <div class="portfolio-cat">Stable Returns</div>
+                            </div>
+                            <div class="portfolio-bar-wrap">
+                                <div class="portfolio-bar-bg"><div class="portfolio-bar" style="width:25%; background:var(--red)"></div></div>
+                                <div class="portfolio-pct">25%</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-row">
+                            <div class="portfolio-icon" style="background:rgba(234,179,8,0.15); color:#eab308">🥇</div>
+                            <div>
+                                <div class="portfolio-name">Gold & Bonds</div>
+                                <div class="portfolio-cat">Hedge</div>
+                            </div>
+                            <div class="portfolio-bar-wrap">
+                                <div class="portfolio-bar-bg"><div class="portfolio-bar" style="width:20%; background:#eab308"></div></div>
+                                <div class="portfolio-pct">20%</div>
+                            </div>
+                        </div>
+                        <div class="portfolio-row">
+                            <div class="portfolio-icon" style="background:rgba(74,222,128,0.15); color:#4ade80">💵</div>
+                            <div>
+                                <div class="portfolio-name">Debt Funds</div>
+                                <div class="portfolio-cat">Low Risk</div>
+                            </div>
+                            <div class="portfolio-bar-wrap">
+                                <div class="portfolio-bar-bg"><div class="portfolio-bar" style="width:15%; background:#4ade80"></div></div>
+                                <div class="portfolio-pct">15%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-card-float f2" data-aos="fade-right" data-aos-delay="500">
+                    <div class="float-label">New Clients</div>
+                    <div class="float-value">+247<span> this month</span></div>
+                    <div class="float-sub">Across India & NRI</div>
+                </div>
             </div>
         </div>
-
+    </div>
+    <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-dot"><div class="scroll-dot-inner"></div></div>
     </div>
 </section>
 
-<style>
-    .zed-academy-header{
-        background-color: #ffffffbf;
-        padding: 40px 50px;
-        /* opacity: 0.7; */
-        display: flex;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 25px;
-        border: 1px solid var(--zed-border-color);
-        margin-top: -125px;
-    }
-
-    .bg-transparent img{
-        width: 75%;
-    }
-
-    .knowledge-trading{
-        padding: 120px 0; /* Adjust padding as needed */
-        position: relative;
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .knowledge-trading p{
-        width: 75% !important;
-    }
-
-    .knowledge-tradinng-icon img{
-        margin-top: -70px;
-        width: 300px !important;
-    }
-
-    @media (max-width: 767.98px) {
-        .knowledge-trading p{
-            width: 100% !important;
-        }
-    }
-</style>
-
-<section class="py-5 pb-0 knowledge-trading">
-    <div class="container text-start">
-        <div class="row zed-academy-header" data-aos="fade-up" data-aos-delay="800">
-            <h5 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="800">
-                First Learn then Earn.
-            </h5>
-            <p class="mb-0 text-gray">
-                At <strong>Zed Capital</strong>, learning comes first. Whether you're just starting out or looking to refine your skills, our courses provide practical knowledge and expert guidance to help you trade more confidently.
-            </p>
-        </div>
-    </div>
-</section>
-
-<div class="container position-relative text-end knowledge-tradinng-icon">
-    <div class="row">
-        <div class="position-absolute set-diamond-image" data-aos="fade-up" data-aos-delay="100" style="z-index: -1;">
-            <img src="assets/img/knowledge-tradinng.webp" alt="Android" class=""/>
-        </div>
+<!-- MARQUEE BAND -->
+<div class="marquee-band">
+    <div class="marquee-track">
+        <span class="marquee-item">📈 Investment Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🛡️ Wealth Management <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🏠 Real Estate Advisory <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">📊 Tax Optimization <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🎓 Child Education Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🌏 NRI Financial Advisory <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">⛑️ Retirement Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">💍 Wedding Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">✈️ Vacation Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">📈 Investment Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🛡️ Wealth Management <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🏠 Real Estate Advisory <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">📊 Tax Optimization <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🎓 Child Education Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">🌏 NRI Financial Advisory <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">⛑️ Retirement Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">💍 Wedding Planning <span class="marquee-sep">•</span></span>
+        <span class="marquee-item">✈️ Vacation Planning <span class="marquee-sep">•</span></span>
     </div>
 </div>
 
-<style>
-    .trading-guide-section{
-        padding: 120px 0 0 0;
-    }
-    .highlight-line {
-        width: 50px;
-        height: 8px;
-        background-color: red;
-        margin: 25px auto;
-    }
-
-     .committed-line {
-        width: 50px;
-        height: 8px;
-        background-color: red;
-        margin: 30px 0;
-    }
-
-    .content-section {
-        padding: 60px 20px;
-    }
-    .btn-custom {
-        background: var(--zed-primary);
-        color: #fff;
-        padding: 12px 30px;
-        border-radius: 25px;
-        font-weight: 600;
-        margin: 20px 0;
-    }
-    .btn-custom:hover {
-        background: var(--zed-primary-hover);
-        color: #fff;
-    }
-    .image-section {
-        text-align: center;
-    }
-    .image-section img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
-
-<section class="trading-guide-section">
-    <div class="container pb-0">
-        <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="800">
-            <h2 class="h2">Trading Guide for Beginners</h2>
-            <div class="highlight-line"></div>
-            <p class="fw-semibold mb-0">Kickstart Your Trading Journey!</p>
-            <p class="text-muted">
-                This guide is the perfect starting point whether you're entirely new to trading or looking to strengthen your fundamentals.
-            </p>
-        </div>
-
-        <div class="row align-items-center py-2 py-md-5" data-aos="fade-up" data-aos-delay="800">
-            <!-- Left Side Content -->
-            <div class="col-lg-5 col-md-12 mb-0 mb-md-4 mb-lg-0">
-                <h2 class="h2 w-75" data-aos="fade-up" data-aos-delay="800">Committed to your success</h2>
-                <div class="committed-line" data-aos="fade-up" data-aos-delay="800"></div>
-                <p class="text-muted text-gray mb-3" data-aos="fade-up" data-aos-delay="800">
-                    At Zed Capital, we are committed to enhancing the trading journey of our clients by providing them with
-                    excellent conditions, cutting-edge tools, in-depth educational resources and world-class customer support.
-                </p>
-                <p class="text-muted text-gray mb-3" data-aos="fade-up" data-aos-delay="800">
-                    Whether you're a new or experienced trader, Zed Capital is here to help you maximise your trading potential.
-                </p>
-                <a href="javascript:void(0)" class="btn btn-custom" data-aos="fade-up" data-aos-delay="800" title="Trade with US">Trade With Us</a>
-            </div>
-
-            <!-- Right Side Image -->
-            <div class="col-lg-7 col-md-12 image-section" data-aos="fade-up" data-aos-delay="800">
-                <img src="assets/img/zed-academy-beginner.webp" alt="Committed to success">
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
-    .btn-red {
-        background-color: var(--zed-primary);
-        color: white;
-        border-radius: 30px;
-        padding: 10px 25px;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 20px;
-    }
-
-    .btn-red:hover {
-        background-color: #c62828;
-        color: white;
-    }
-    .section-title {
-        font-weight: bold;
-        font-size: 2rem;
-    }
-
-    .divider {
-        width: 80px;
-        height: 8px;
-        background-color: var(--zed-primary);
-        margin: 40px 0;
-    }
-
-    .lesson-image {
-        width: 100%;
-        height: auto;
-    }
-</style>
-
-<div class="container py-5">
-    <div class="row align-items-center">
-      <!-- Text Section -->
-        <div class="col-lg-7 mb-0 mb-md-4 mb-lg-0 p-0">
-            <img src="assets/img/bit-size-lesson.webp" alt="Beginner Trading Course" class="lesson-image">
-        </div>
-
-      <!-- Image Section -->
-        <div class="col-lg-5 text-start" data-aos="fade-up" data-aos-delay="800">
-            <h2 class="h2 fw-bold" data-aos="fade-up" data-aos-delay="200">Learn in <br> Bite-Sized Lessons</h2>
-            <div class="divider" data-aos="fade-up" data-aos-delay="300"></div>
-            <h6 class="fw-bold" data-aos="fade-up" data-aos-delay="400">Beginner Trading Course</h6>
-            <p class="text-muted" data-aos="fade-up" data-aos-delay="500">
-                Start trading with ease! Learn the basics in quick, simple lessons designed for beginners.
-            </p>
-            <a href="javascript:void(0)" class="btn-red" data-aos="fade-up" data-aos-delay="600" title="See All Beginner Courses">
-                See All Beginner Courses
-            </a>
-        </div>
-    </div>
-</div>
-
-<style>
-    .exlusive-webinars{
-        background-color: var(--zed-banner-bg-start);
-    }
-
-    .exlusive-webinars .divider {
-        margin: 35px auto;
-    }
-
-    .exlusive-webinars .learn-card .divider {
-        margin: 5px 0;
-        width: 50px;
-        height: 4px;
-        background-color: var(--zed-border-color);
-    }
-
-    .feature-card {
-        background: #fff;
-        border-radius: 15px;
-        padding: 35px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border: 1px solid var(--zed-border-color);
-        height: 100%;
-    }
-    .feature-card img {
-        width: 80px;
-        height: auto;
-        margin: -15px -15px;
-        position: absolute;
-    }
-    .feature-card h5 {
-        font-weight: bold;
-        letter-spacing: inherit;
-    }
-    .feature-card p {
-        color: #777;
-        margin: 20px 0px;
-    }
-</style>
-
-<section class="exlusive-webinars p-3">
-    <div class="container py-5 text-center">
-        <h2 class="fw-bold h2" data-aos="fade-up" data-aos-delay="800">Zed Capital Exclusive Webinars</h2>
-        <p class="text-muted" data-aos="fade-up" data-aos-delay="800">
-            are meticulously curated to help you achieve trading excellence and unlock market opportunities.
-        </p>
-        <div class="divider" data-aos="fade-up" data-aos-delay="800"></div>
-        <h5 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="800">You Will Learn</h5>
-
-        <div class="row g-4">
-            <div class="col-12 col-md-4">
-                <div class="feature-card learn-card text-start">
-                    <div class="row position-relative">
-                        <div class="col-md-7" data-aos="fade-up" data-aos-delay="400">
-                            <h5>Global Market Hotspot Analysis</h5>
-                        </div>
-                        <div class="col-md-5 text-center" data-aos="fade-up" data-aos-delay="400">
-                            <img src="assets/img/global-market-analys.webp" alt="Global Market" class="set-diamond-image">
-                        </div>
-                    </div>
-                    <div class="divider" data-aos="fade-up" data-aos-delay="400"></div>
-                    <p data-aos="fade-up" data-aos-delay="400">Latest trends in U.S. stocks, forex and gold</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="feature-card learn-card text-start">
-                    <div class="row position-relative" >
-                        <div class="col-md-7" data-aos="fade-up" data-aos-delay="600">
-                            <h5>Top Trading Strategy Tips</h5>
-                        </div>
-                        <div class="col-md-5 text-center" data-aos="fade-up" data-aos-delay="600">
-                            <img src="assets/img/top-trading-tips.webp" alt="Trading Tips" class="set-diamond-image">
-                        </div>
-                    </div>
-                    <div class="divider" data-aos="fade-up" data-aos-delay="600"></div>
-                    <p data-aos="fade-up" data-aos-delay="600">How to accurately capture buy and sell points?</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-4">
-                <div class="feature-card learn-card text-start">
-                    <div class="row position-relative">
-                        <div class="col-md-7" data-aos="fade-up" data-aos-delay="800">
-                            <h5>In-depth Case Study Analysis</h5>
-                        </div>
-                        <div class="col-md-5 text-center" data-aos="fade-up" data-aos-delay="800">
-                            <img src="assets/img/depth-case-analysis.webp" alt="Case Study" class="set-diamond-image">
-                        </div>
-                    </div>
-                    <div class="divider" data-aos="fade-up" data-aos-delay="800"></div>
-                    <p data-aos="fade-up" data-aos-delay="800">Real transaction data review, learning advanced trading strategies</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-5 text-start">
-            <h6 class="fw-bold" data-aos="fade-up" data-aos-delay="500">Suitable for:</h6>
-            <ul class="arrow-list text-muted">
-                <li data-aos="fade-up" data-aos-delay="600"><strong>Beginner Traders:</strong> Learn market analysis from scratch</li>
-                <li data-aos="fade-up" data-aos-delay="700"><strong>Experienced Investors:</strong> Optimize your trading strategies</li>
-                <li data-aos="fade-up" data-aos-delay="800"><strong>Institutions & Professionals:</strong> Gain deeper insights into market dynamics</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<style>
-
-    #professional_getway{
-        padding: 50px 0; /* Adjust padding as needed */
-        background-color: #fff;
-        position: relative;
-    }
-
-    #professional_getway .d-grid img{
-        margin-top: -55px;
-    }
-
-    @media (max-width: 767.98px) {
-
-        .zed-academy-header{
-            padding: 25px !important;
-        }
-
-    }
-</style>
-
-<section class="" id="professional_getway">
+<!-- TRUST BAND -->
+<div class="trust-band">
     <div class="container">
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="position-absolute w-100 text-end set-diamond-image">
-                <img src="assets/img/background/redgreen-trading-candles-white-studio.webp" alt="Candlestick Studio" style="width: 25%; margin-top: -200px;">
+        <span class="trust-label">Trusted By</span>
+        <div class="trust-divider"></div>
+        <div class="trust-logos">
+            <div class="trust-logo"><div class="trust-logo-icon">SB</div><span class="trust-logo-name">SBI Mutual</span></div>
+            <div class="trust-logo"><div class="trust-logo-icon">HD</div><span class="trust-logo-name">HDFC AMC</span></div>
+            <div class="trust-logo"><div class="trust-logo-icon">IC</div><span class="trust-logo-name">ICICI Pru</span></div>
+            <div class="trust-logo"><div class="trust-logo-icon">AX</div><span class="trust-logo-name">Axis Mutual</span></div>
+            <div class="trust-logo"><div class="trust-logo-icon">KT</div><span class="trust-logo-name">Kotak Life</span></div>
+            <div class="trust-logo"><div class="trust-logo-icon">LI</div><span class="trust-logo-name">LIC India</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="services">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Comprehensive <span>Financial Services</span></h2>
+            <p class="section-sub">From investment planning to insurance, we cover every aspect of your financial life with expertise and integrity.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Investment Planning</h3>
+                <p>Strategically grow your wealth through diversified, goal-oriented investment portfolios.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
-            <!-- Left Column -->
-            <div class="col-lg-6 mb-4 mb-lg-0">
-                <h2 class="h2 fw-bold mb-5" data-aos="fade-up" data-aos-delay="800">Your gateway to professional trading</h2>
-                <div class="divider"></div>
-                <p class="text-muted mt-5 text-gray aos-init" data-aos="fade-up" data-aos-delay="800">
-                    At ZED Academy, we provide a structured and in-depth trading education designed to help you develop real-world trading skills, gain confidence and trade like a professional.
-                </p>
-                <ul class="arrow-list mt-4 aos-init" data-aos="fade-up" data-aos-delay="800">
-                    <li>Complete all course videos</li>
-                    <li>Pass the final exam</li>
-                    <li>Receive your Zed Academy Certificate of Completion</li>
-                </ul>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="service-icon"><i class="fas fa-umbrella"></i></div>
+                <h3>Retirement Planning</h3>
+                <p>Build a secure, comfortable retirement with customized income strategies and pension plans.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
             </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon"><i class="fas fa-globe-asia"></i></div>
+                <h3>NRI Financial Advisory</h3>
+                <p>Specialized financial guidance for Non-Resident Indians managing assets across borders.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="service-icon"><i class="fas fa-gem"></i></div>
+                <h3>Wealth Management</h3>
+                <p>Holistic wealth management services for HNIs and ultra-HNIs to preserve and grow capital.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3>Life Insurance</h3>
+                <p>Protect your family's future with comprehensive life cover solutions tailored to your needs.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="service-icon"><i class="fas fa-hospital"></i></div>
+                <h3>Health Insurance</h3>
+                <p>Comprehensive health coverage plans for individuals, families, and corporate employees.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon"><i class="fas fa-percent"></i></div>
+                <h3>Tax-Efficient Investment</h3>
+                <p>Minimize your tax burden through smart investment strategies like ELSS, NPS, and more.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="service-icon"><i class="fas fa-building"></i></div>
+                <h3>Real Estate Investment</h3>
+                <p>Navigate property investments with expert guidance on REITs, direct purchase, and rental yield.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Child Education Planning</h3>
+                <p>Secure your child's academic future with systematic education savings and investment plans.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="50">
+                <div class="service-icon"><i class="fas fa-ring"></i></div>
+                <h3>Child Wedding Planning</h3>
+                <p>Plan ahead and invest smartly to make your child's wedding a memorable, stress-free event.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon"><i class="fas fa-plane"></i></div>
+                <h3>Vacation Planning</h3>
+                <p>Build a dedicated vacation fund so you can travel the world without financial stress.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Business Planning</h3>
+                <p>Financial structuring, cash flow optimization, and business succession planning for entrepreneurs.</p>
+                <a href="#" class="service-card-link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <!-- Right Column -->
-            <div class="col-lg-6">
-                <div class="d-grid gap-3" data-aos="fade-up" data-aos-delay="800">
-
-                    <!-- Card 1 -->
-                    <div class="d-flex justify-content-between align-items-start p-4 border rounded-4" data-aos="fade-up" data-aos-delay="200">
-                        <div>
-                            <h5 class="fw-bold">Expert-led education</h5>
-                            <p class="text-muted mb-0">
-                                Our courses are designed and taught by top financial traders, analysts and market strategists with years of professional experience in the financial markets.
-                            </p>
-                        </div>
-                        <img src="assets/img/expert-led-education.webp" alt="Expert Icon" class="w-25 set-diamond-image">
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="section why-us" id="about">
+    <div class="container">
+        <div class="why-grid">
+            <div class="why-visual" data-aos="fade-right">
+                <div class="why-bg-block"></div>
+                <div class="why-main-img">
+                    <div class="why-stat-grid">
+                        <div class="why-stat"><div class="why-stat-num">₹2400<span>Cr</span></div><div class="why-stat-label">Assets Under Management</div></div>
+                        <div class="why-stat"><div class="why-stat-num">8500<span>+</span></div><div class="why-stat-label">Active Clients</div></div>
+                        <div class="why-stat"><div class="why-stat-num">18<span>+</span></div><div class="why-stat-label">Years of Excellence</div></div>
+                        <div class="why-stat"><div class="why-stat-num">98<span>%</span></div><div class="why-stat-label">Retention Rate</div></div>
                     </div>
-
-                    <!-- Card 2 -->
-                    <div class="d-flex justify-content-between align-items-start p-4 border rounded-4" data-aos="fade-up" data-aos-delay="400">
+                </div>
+                <div class="why-badge-float f1">
+                    <div class="why-badge-inner">
+                        <div class="why-badge-icon"><i class="fas fa-shield-alt"></i></div>
                         <div>
-                            <h5 class="fw-bold">Learn at your own pace</h5>
-                            <p class="text-muted mb-0">
-                                All courses are 100% online and mobile-friendly, allowing you to learn anytime, anywhere, on any device. Our platform is optimized for a seamless experience.
-                            </p>
+                        <div class="why-badge-num">SEBI Registered</div>
+                        <div class="why-badge-label">RIA — INA000XXXXX</div>
                         </div>
-                        <img src="assets/img/learn-at-your-own-pace.webp" alt="Chart Icon" class="w-25 set-diamond-image">
                     </div>
-
-                    <!-- Card 3 -->
-                    <div class="d-flex justify-content-between align-items-start p-4 border rounded-4 aos-init" data-aos="fade-up" data-aos-delay="600">
+                </div>
+                <div class="why-badge-float f2">
+                    <div class="why-badge-inner">
+                        <div class="why-badge-icon"><i class="fas fa-award"></i></div>
                         <div>
-                            <h5 class="fw-bold">Certification &amp; credibility</h5>
-                            <p class="text-muted mb-0">
-                                Boost your trading credibility with a Zed Academy Certificate of Completion. Our certification validates your knowledge and skills, making it a valuable addition to your career enhancement.
-                            </p>
+                        <div class="why-badge-num">Best Advisory</div>
+                        <div class="why-badge-label">Gujarat 2024</div>
                         </div>
-                        <img src="assets/img/certification.webp" alt="Certificate Icon" class="w-25 set-diamond-image">
                     </div>
-
+                </div>
+            </div>
+            <div data-aos="fade-left">
+                <span class="section-label">Why Choose Us</span>
+                <h2 class="section-title">Your Trusted <span>Financial Partner</span> Since 2006</h2>
+                <p class="section-sub" style="margin-bottom: 8px;">At Wealth Bridge, we combine deep financial expertise with personalized service to help you achieve your life goals — not just investment targets.</p>
+                <div class="why-features">
+                <div class="why-feature">
+                    <div class="why-feature-icon"><i class="fas fa-user-shield"></i></div>
+                    <div>
+                    <h4>Fiduciary Standard</h4>
+                    <p>We are legally and ethically bound to act in your best interest — always, without conflict.</p>
+                    </div>
+                </div>
+                <div class="why-feature">
+                    <div class="why-feature-icon"><i class="fas fa-chart-pie"></i></div>
+                    <div>
+                    <h4>Holistic 360° Planning</h4>
+                    <p>We look at your complete financial picture: income, expenses, goals, risk, and legacy.</p>
+                    </div>
+                </div>
+                <div class="why-feature">
+                    <div class="why-feature-icon"><i class="fas fa-headset"></i></div>
+                    <div>
+                    <h4>Dedicated Relationship Manager</h4>
+                    <p>A single point of contact who knows your goals and is available when you need them.</p>
+                    </div>
+                </div>
+                <div class="why-feature">
+                    <div class="why-feature-icon"><i class="fas fa-lock"></i></div>
+                    <div>
+                    <h4>Transparent & Ethical</h4>
+                    <p>No hidden fees, no commission conflicts. Our fee structure is fully disclosed upfront.</p>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<style>
-    .get-started {
-        padding: 120px 0;
-        background-image: url("assets/img/background/zed-acadamy-get-started.webp");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        color: #fff;
-    }
-
-    .get-started .divider {
-        background-color: black;
-    }
-
-    .btn-start {
-        background-color: white;
-        color: #e6392f;
-        border-radius: 25px;
-        font-weight: bold;
-        padding: 10px 25px;
-        border: none;
-        transition: 0.3s;
-    }
-
-    .btn-start:hover {
-        background-color: #f8d7da;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-</style>
-
-<section class="get-started">
+<!-- ============ PROCESS ============ -->
+<section class="section process">
     <div class="container">
-        <div class="row  align-items-center">
-
-            <!-- Left Text -->
-            <div class="col-md-6 align-items-center">
-                <h2 class="fw-bold h2">Get Started!</h2>
-                <div class="divider"></div>
-                <p class="mb-0" style="font-size: 1.3rem;">Sign up and access the Global Markets<br>in less than 3 minutes</p>
-            </div>
-
-            <!-- Right Image & Button -->
-            <div class="col-md-6 text-start text-md-end mt-5 mt-md-0">
-                <p class="mb-2" style="font-size: 1.3rem;">
-                    Try Free <br>
-                    Demo Account
-                </p>
-                <button class="btn-start" data-aos="fade-up" data-aos-delay="800" style="padding: 10px 40px; font-size: 1.3rem; margin-top: 20px; font-weight: 500;">Start Trading</button>
-            </div>
-
+        <div class="section-header center" data-aos="fade-up">
+            <span class="section-label">How It Works</span>
+            <h2 class="section-title" style="color:white">Our <span>5-Step</span> Advisory Process</h2>
+            <p class="section-sub" style="margin: 0 auto; color:rgba(255,255,255,0.5)">A structured, transparent process designed to turn your financial aspirations into a concrete roadmap.</p>
         </div>
-
-        <div class="position-relative set-diamond-image" data-aos="fade-up" data-aos-delay="800">
-            <img src="assets/img/diamonds/common-2-diamonds.png" alt="Corner Image" class="position-absolute bottom-30 end-0 float-y" style="width: 150px;height: 120px;margin: 50px 75px;">
+        <div class="process-steps">
+            <div class="process-step active" data-aos="fade-up" data-aos-delay="0">
+                <div class="process-num">01</div>
+                <h4>Discovery Call</h4>
+                <p>We understand your goals, current finances, and risk appetite in a free 30-min consultation.</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-num">02</div>
+                <h4>Financial Analysis</h4>
+                <p>Deep-dive analysis of your existing investments, liabilities, insurance, and tax situation.</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                <div class="process-num">03</div>
+                <h4>Custom Strategy</h4>
+                <p>A personalized financial plan crafted by our SEBI-registered advisors — no templates.</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                <div class="process-num">04</div>
+                <h4>Implementation</h4>
+                <p>Seamless execution of the plan with end-to-end support for all transactions and paperwork.</p>
+            </div>
+            <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                <div class="process-num">05</div>
+                <h4>Ongoing Review</h4>
+                <p>Quarterly portfolio reviews and annual plan updates to keep you on track as life changes.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<style>
-    .video-thumbnail {
-        position: relative;
-        text-align: center;
-        border: 1px solid var(--zed-border-color);
-        border-radius: 25px;
-    }
-    .video-thumbnail img {
-        max-width: 100%;
-        border-radius: 25px;
-    }
-    .play-btn {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255,255,255,0.85);
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 36px;
-        color: #e63946;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .play-btn:hover {
-        background: #e63946;
-        color: #fff;
-    }
-
-    .zed-academy-video-thumbnail .card-img-top {
-        height: 450px;
-        object-fit: cover;
-    }
-</style>
-
-<div class="container py-5">
-    <div class="row align-items-center mt-5" data-aos="fade-up" data-aos-delay="800">
-        <!-- Left Content -->
-        <div class="col-lg-4">
-            <h2 class="fw-bold w-75" data-aos="fade-up" data-aos-delay="800">Explore more about Stock with Zed Capital</h2>
-            <div class="my-5" data-aos="fade-up" data-aos-delay="800" style="width:50px; height:6px; background:#e63946;"></div>
-            <p class="text-muted w-75" data-aos="fade-up" data-aos-delay="800">
-                Zed Capital provides several resources to help you better understand Zed products
-                and services, markets and technology.
-            </p>
-            <div class="set-diamond-image">
-                <a href="javascript:void(0)" class="btn btn-outline-dark d-inline-flex align-items-center mt-2" data-aos="fade-up" data-aos-delay="800" title="Learn More">
-                    Learn more
-                <span class="ms-2 bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width:25px; height:25px;" data-aos="fade-up" data-aos-delay="800">
-                    →
-                </span>
-                </a>
-            </div>
+<!-- ============ CALCULATORS ============ -->
+<section class="section calculators" id="resources">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-label">Financial Tools</span>
+            <h2 class="section-title">Free <span>Calculators</span> & Planning Tools</h2>
+            <p class="section-sub">Use our intelligent calculators to estimate, plan, and optimize every aspect of your financial journey.</p>
         </div>
-
-        <!-- Right Video Section -->
-        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="800">
-            <div class="video-thumbnail zed-academy-video-thumbnail" data-video="https://www.youtube.com/embed/vjfEnAkpLe0?autoplay=1" data-title="Forex Trading for Beginners (Full Course)">
-                <img src="https://img.youtube.com/vi/vjfEnAkpLe0/hqdefault.jpg" alt="vjfEnAkpLe0" class="card-img-top">
-                <span class="play-btn">▶</span>
+        <div class="calc-grid">
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="calc-icon">📊</div>
+                <h3>Investment Calculator</h3>
+                <p>Calculate SIP returns, lump-sum growth, and CAGR for any investment period.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="60">
+                <div class="calc-icon">💼</div>
+                <h3>Personal Finance Calc.</h3>
+                <p>Analyze income, expenses, savings rate, and financial health score instantly.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="120">
+                <div class="calc-icon">👨‍👩‍👧</div>
+                <h3>Children & Family Calc.</h3>
+                <p>Plan for education, wedding, and family milestones with precision.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="calc-icon">🏖️</div>
+                <h3>Retirement Calculator</h3>
+                <p>Find out how much you need to retire comfortably at your desired age.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="60">
+                <div class="calc-icon">🎓</div>
+                <h3>Education & Career Calc.</h3>
+                <p>Estimate future education costs and build a savings plan accordingly.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="120">
+                <div class="calc-icon">📋</div>
+                <h3>Tax Calculator</h3>
+                <p>Compare old vs new tax regime, calculate HRA, 80C deductions and net tax liability.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="calc-icon">✈️</div>
+                <h3>Lifestyle & Goal Calc.</h3>
+                <p>Plan vacations, luxury purchases, and lifestyle goals with a smart savings tracker.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="60">
+                <div class="calc-icon">💰</div>
+                <h3>Income & Cash Flow</h3>
+                <p>Track and optimize your income streams, expenses, and net cash flow position.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="calc-card" data-aos="fade-up" data-aos-delay="120">
+                <div class="calc-icon">🏦</div>
+                <h3>Loan Calculator</h3>
+                <p>Calculate EMIs, total interest outflow, and prepayment benefits for any loan.</p>
+                <a href="#" class="calc-card-link">Try Now <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
+</section>
 
-    <script>
-        document.querySelectorAll('.video-thumbnail').forEach(el => {
-            el.addEventListener('click', function () {
-            const videoUrl = this.getAttribute('data-video');
-            const videoTitle = this.getAttribute('data-title');
-            this.innerHTML = `<iframe style="width:100%; height:450px;" style="border-radius: 25px;" src="${videoUrl}"
-                title="${videoTitle}" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>`;
-            this.style = "border: 0";
-            });
-        });
-    </script>
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section testimonials" id="testimonials">
+    <div class="container">
+        <div class="section-header center" data-aos="fade-up">
+            <span class="section-label">Client Testimonials</span>
+            <h2 class="section-title">What Our <span>Clients Say</span></h2>
+            <p class="section-sub">Real stories from real clients who transformed their financial futures with Wealth Bridge.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Wealth Bridge completely changed how I think about money. My portfolio has grown 31% in just 2 years, and more importantly, I now have a clear roadmap to early retirement."</p>
+                <div class="testimonial-author">
+                <div class="testimonial-avatar">RK</div>
+                <div>
+                    <div class="testimonial-name">Rajesh Kumar</div>
+                    <div class="testimonial-role">IT Professional, Ahmedabad</div>
+                </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"As an NRI in the UK, managing Indian investments was complex. Wealth Bridge simplified everything — taxation, repatriation, and portfolio management. Truly world-class service."</p>
+                <div class="testimonial-author">
+                <div class="testimonial-avatar">PS</div>
+                <div>
+                    <div class="testimonial-name">Priya Shah</div>
+                    <div class="testimonial-role">NRI Client, London</div>
+                </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I was skeptical at first, but their transparency and zero-commission model convinced me. Best financial decision I ever made. My daughter's education fund is fully on track."</p>
+                <div class="testimonial-author">
+                <div class="testimonial-avatar">AM</div>
+                <div>
+                    <div class="testimonial-name">Anita Mehta</div>
+                    <div class="testimonial-role">Business Owner, Surat</div>
+                </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Their retirement planning service is exceptional. At 42, I had no plan. Now at 47, I'm on track to retire at 55 with ₹5 crore corpus. The team is responsive, honest and brilliant."</p>
+                <div class="testimonial-author">
+                <div class="testimonial-avatar">VJ</div>
+                <div>
+                    <div class="testimonial-name">Vijay Joshi</div>
+                    <div class="testimonial-role">Senior Manager, BPCL</div>
+                </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The women's financial planning program gave me confidence I never had. I now invest independently, understand markets, and have built a substantial emergency and wealth corpus."</p>
+                <div class="testimonial-author">
+                <div class="testimonial-avatar">ND</div>
+                <div>
+                    <div class="testimonial-name">Neha Desai</div>
+                    <div class="testimonial-role">Homemaker turned Investor</div>
+                </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Outstanding tax planning saved me over ₹3.5 lakh last year! The team proactively suggests strategies every quarter. It feels like having a personal CFO at a fraction of the cost."</p>
+                <div class="testimonial-author">
+                <div class="testimonial-avatar">SP</div>
+                <div>
+                    <div class="testimonial-name">Suresh Patel</div>
+                    <div class="testimonial-role">Chartered Accountant, Vadodara</div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- ============ INSIGHTS ============ -->
+<section class="section insights" id="insights">
+    <div class="container">
+        <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px" data-aos="fade-up">
+            <div>
+                <span class="section-label">Latest Insights</span>
+                <h2 class="section-title">News, <span>Blog</span> & Market Updates</h2>
+            </div>
+            <a href="#" class="btn btn-outline">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="insights-grid">
+        <div class="insight-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="insight-img">
+                <div class="insight-img-bg" style="background: linear-gradient(135deg, #1a1a2e, #16213e)">📈</div>
+                <span class="insight-tag">Market Update</span>
+            </div>
+            <div class="insight-body">
+            <div class="insight-meta">
+                <span class="insight-date">June 1, 2026</span>
+                <span>·</span>
+                <span class="insight-min">4 min read</span>
+            </div>
+            <a href="#" class="insight-title">Sensex Crosses 90,000: What It Means for Your Portfolio in 2026</a>
+            <p class="insight-excerpt">With record-breaking indices, we analyze which sectors present the best opportunity and how to rebalance your portfolio strategically.</p>
+            </div>
+        </div>
+        <div class="insight-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="insight-img">
+            <div class="insight-img-bg" style="background: linear-gradient(135deg, #0d1117, #1c2940)">💡</div>
+            <span class="insight-tag">Blog</span>
+            </div>
+            <div class="insight-body">
+            <div class="insight-meta">
+                <span class="insight-date">May 28, 2026</span>
+                <span>·</span>
+                <span class="insight-min">6 min read</span>
+            </div>
+            <a href="#" class="insight-title">New Tax Regime 2026: Should You Switch? A Complete Comparison Guide</a>
+            <p class="insight-excerpt">FY 2026-27 tax changes explained in simple terms — who benefits from the new regime and who should stick with the old one.</p>
+            </div>
+        </div>
+        <div class="insight-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="insight-img">
+            <div class="insight-img-bg" style="background: linear-gradient(135deg, #1a0505, #2d0a0a)">🌏</div>
+            <span class="insight-tag">News</span>
+            </div>
+            <div class="insight-body">
+            <div class="insight-meta">
+                <span class="insight-date">May 22, 2026</span>
+                <span>·</span>
+                <span class="insight-min">3 min read</span>
+            </div>
+            <a href="#" class="insight-title">RBI Rate Cut Impact: Best Debt Instruments to Invest in Right Now</a>
+            <p class="insight-excerpt">With RBI cutting repo rate by 50bps in 2026, we unpack the impact on FDs, bonds, and debt mutual funds and our recommendations.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SEBI DISCLOSURE ============ -->
+<div class="sebi-band" id="sebi">
+  <div class="container">
+    <div class="sebi-content" data-aos="fade-right">
+      <div class="sebi-icon"><i class="fas fa-shield-alt"></i></div>
+      <div class="sebi-text">
+        <h3>SEBI Registered Investment Advisor</h3>
+        <p>Wealth Bridge Financial Advisory is registered with the Securities and Exchange Board of India (SEBI) as an Investment Adviser under the SEBI (Investment Advisers) Regulations, 2013.</p>
+      </div>
+    </div>
+    <div class="sebi-reg" data-aos="fade-left">
+      <div class="sebi-reg-num">Registration Number</div>
+      <div class="sebi-reg-val">INA000XXXXXX</div>
+      <a href="#" class="btn btn-outline" style="color:white; border-color:rgba(255,255,255,0.2); margin-top:8px; padding:8px 16px; font-size:12px">View Certificate</a>
+    </div>
+  </div>
 </div>
 
-<div class="position-relative set-diamond-image" data-aos="fade-up" data-aos-duration="850">
-    <img src="assets/img/diamonds/silver-diamond.png" alt="Corner Image" class="position-absolute bottom-0 end-0 float-y" style="width: 80px; height: 50px; margin: -30px 200px;">
+<!-- ============ IMPOSTER WARNING ============ -->
+<div class="imposter" id="imposter">
+  <div class="container">
+    <div class="imposter-icon" data-aos="zoom-in">⚠️</div>
+    <div class="imposter-content" data-aos="fade-left">
+      <h3>Beware of Imposters!</h3>
+      <p>We have noticed fraudulent entities falsely claiming to represent <strong>Wealth Bridge Financial Advisory</strong>. These imposters may contact you via WhatsApp, Telegram, or calls promising guaranteed returns. <strong>Wealth Bridge never guarantees returns or asks for money via personal accounts.</strong> Always verify via our official channels only. Report suspicious activity immediately.</p>
+    </div>
+    <div class="imposter-cta" data-aos="fade-left" data-aos-delay="100">
+      <a href="#contact" class="btn btn-primary">Report Fraud <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
 </div>
+
+<!-- ============ PRICING ============ -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section-header center" data-aos="fade-up">
+      <span class="section-label">Transparent Pricing</span>
+      <h2 class="section-title">Simple, <span>Fee-Only</span> Advisory Plans</h2>
+      <p class="section-sub">No commissions. No hidden charges. Just honest, fee-based financial advice aligned with your interests.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="pricing-header">
+          <div class="pricing-plan">Starter</div>
+          <div class="pricing-name">Essential Plan</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">₹</span>
+            <span class="pricing-amount">4,999</span>
+            <span class="pricing-period">/ year</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-features">
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> 1 Financial Plan</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Risk Profiling</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Investment Recommendations</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> 2 Review Meetings / Year</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Basic Tax Planning</div>
+            <div class="pricing-feature off"><i class="fas fa-times-circle"></i> Insurance Review</div>
+            <div class="pricing-feature off"><i class="fas fa-times-circle"></i> Dedicated RM</div>
+            <div class="pricing-feature off"><i class="fas fa-times-circle"></i> Estate Planning</div>
+          </div>
+          <a href="#contact" class="btn btn-outline pricing-cta">Get Started</a>
+        </div>
+      </div>
+      <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="100">
+        <div class="pricing-header">
+          <div class="popular-tag">Most Popular</div>
+          <div class="pricing-plan">Growth</div>
+          <div class="pricing-name">Comprehensive Plan</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">₹</span>
+            <span class="pricing-amount">14,999</span>
+            <span class="pricing-period">/ year</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-features">
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Complete Financial Plan</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Risk Profiling & Asset Allocation</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> All Investment Recommendations</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Quarterly Review Meetings</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Advanced Tax Planning</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Insurance Review & Planning</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Dedicated Relationship Manager</div>
+            <div class="pricing-feature off"><i class="fas fa-times-circle"></i> Estate & Succession Planning</div>
+          </div>
+          <a href="#contact" class="btn btn-primary pricing-cta">Get Started</a>
+        </div>
+      </div>
+      <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="pricing-header">
+          <div class="pricing-plan">Premium</div>
+          <div class="pricing-name">HNI / Wealth Plan</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">₹</span>
+            <span class="pricing-amount">49,999</span>
+            <span class="pricing-period">/ year</span>
+          </div>
+        </div>
+        <div class="pricing-body">
+          <div class="pricing-features">
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Complete Family Financial Plan</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Multi-Asset Portfolio Management</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Priority Investment Access</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Monthly Review Meetings</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Comprehensive Tax Strategy</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Full Insurance Audit</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Dedicated Senior Advisor + RM</div>
+            <div class="pricing-feature"><i class="fas fa-check-circle"></i> Estate & Succession Planning</div>
+          </div>
+          <a href="#contact" class="btn btn-outline pricing-cta">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Start Your <span>Financial Journey</span> Today</h2>
+      <p class="section-sub">Book a free 30-minute consultation with our SEBI-registered advisor. No commitment, just clarity.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info" data-aos="fade-right">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Office Address</h4>
+            <p>302, Wealth Tower, Ring Road<br>Surat, Gujarat — 395002</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Phone Number</h4>
+            <p>+91 8000 000 000<br>+91 8001 000 000 (NRI Helpline)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Email Address</h4>
+            <p>info@wealthbridge.io<br>advisory@wealthbridge.io</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Office Hours</h4>
+            <p>Monday – Saturday: 9:30 AM – 6:30 PM<br>Sunday & Public Holidays: Closed</p>
+          </div>
+        </div>
+        <div style="background: linear-gradient(135deg, var(--black), #1a0a0d); border-radius: 10px; padding: 24px; border: 1px solid rgba(200,16,46,0.2);">
+          <div style="font-size:13px; color:rgba(255,255,255,0.5); margin-bottom:8px; letter-spacing:1px; text-transform:uppercase;">Follow Us</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="#" style="display:flex; align-items:center; gap:8px; color:white; font-size:13px; background:rgba(255,255,255,0.06); padding:8px 14px; border-radius:6px; transition:background .2s" onmouseover="this.style.background='rgba(200,16,46,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <a href="#" style="display:flex; align-items:center; gap:8px; color:white; font-size:13px; background:rgba(255,255,255,0.06); padding:8px 14px; border-radius:6px; transition:background .2s" onmouseover="this.style.background='rgba(200,16,46,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#" style="display:flex; align-items:center; gap:8px; color:white; font-size:13px; background:rgba(255,255,255,0.06); padding:8px 14px; border-radius:6px; transition:background .2s" onmouseover="this.style.background='rgba(200,16,46,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="#" style="display:flex; align-items:center; gap:8px; color:white; font-size:13px; background:rgba(255,255,255,0.06); padding:8px 14px; border-radius:6px; transition:background .2s" onmouseover="this.style.background='rgba(200,16,46,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'"><i class="fab fa-x-twitter"></i> Twitter/X</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form" data-aos="fade-left">
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; margin-bottom: 8px;">Book a Free Consultation</h3>
+        <p style="font-size: 13.5px; color: var(--gray-500); margin-bottom: 28px;">Fill in your details and our advisor will reach out within 24 hours.</p>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">First Name *</label>
+            <input type="text" class="form-input" placeholder="Rajesh" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name *</label>
+            <input type="text" class="form-input" placeholder="Kumar" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" placeholder="rajesh@email.com" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" placeholder="+91 98765 43210" />
+          </div>
+          <div class="form-group full">
+            <label class="form-label">I'm Interested In</label>
+            <select class="form-select">
+              <option value="">Select a service...</option>
+              <option>Investment Planning</option>
+              <option>Retirement Planning</option>
+              <option>NRI Financial Advisory</option>
+              <option>Wealth Management</option>
+              <option>Tax Planning</option>
+              <option>Life / Health Insurance</option>
+              <option>Child Education Planning</option>
+              <option>Business Planning</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" placeholder="Tell us briefly about your financial goals or questions..."></textarea>
+          </div>
+        </div>
+        <button class="btn btn-primary" style="width:100%; justify-content:center; margin-top: 20px; padding: 16px;" onclick="alert('Thank you! Our advisor will reach out within 24 hours.')">
+          Book Free Consultation <i class="fas fa-arrow-right"></i>
+        </button>
+        <p style="font-size:12px; color:var(--gray-500); text-align:center; margin-top:12px;"><i class="fas fa-lock" style="color:var(--red); margin-right:4px"></i>Your information is 100% confidential and never shared.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <?php
 include_once ('elements/footer.php');
