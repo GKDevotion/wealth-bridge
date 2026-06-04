@@ -39,7 +39,7 @@
             <ul>
               <li><a href="investment-planning">Investment Planning</a></li>
               <li><a href="retirement-planning">Retirement Planning</a></li>
-              <li><a href="#">NRI Advisory</a></li>
+              <li><a href="nri-financial-advisory">NRI Financial Advisory</a></li>
               <li><a href="#">Wealth Management</a></li>
               <li><a href="#">Life Insurance</a></li>
               <li><a href="#">Tax Planning</a></li>

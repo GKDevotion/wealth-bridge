@@ -1,0 +1,1432 @@
+/* ============================================================
+   HERO — NRI ADVISORY
+============================================================ */
+.service-hero {
+    position: relative;
+    background: var(--black);
+    overflow: hidden;
+    padding: 100px 0 80px
+}
+
+/* Subtle world-map dot pattern */
+.sh-dots {
+    position: absolute;
+    inset: 0;
+    opacity: .07;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, .8) 1px, transparent 1px);
+    background-size: 32px 32px
+}
+
+.sh-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 70% at 65% 45%, rgba(200, 16, 46, .18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 5% 80%, rgba(212, 160, 23, .07) 0%, transparent 50%),
+        radial-gradient(ellipse 30% 30% at 95% 15%, rgba(200, 16, 46, .07) 0%, transparent 50%)
+}
+
+.sh-line {
+    position: absolute;
+    top: 0;
+    right: 22%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(200, 16, 46, .22), transparent)
+}
+
+.sh-line2 {
+    position: absolute;
+    top: 0;
+    right: 40%;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, .04), transparent)
+}
+
+.sh-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center
+}
+
+.sh-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200, 16, 46, .15);
+    border: 1px solid rgba(200, 16, 46, .3);
+    color: #ff8090;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px
+}
+
+.sh-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 18px
+}
+
+.sh-title em {
+    color: var(--red);
+    font-style: normal;
+    display: block
+}
+
+.sh-desc {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, .6);
+    max-width: 460px;
+    line-height: 1.85;
+    margin-bottom: 36px
+}
+
+.sh-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 48px
+}
+
+.sh-quick-stats {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 8px;
+    overflow: hidden
+}
+
+.sh-qs {
+    padding: 14px 20px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, .08);
+    flex: 1
+}
+
+.sh-qs:last-child {
+    border-right: none
+}
+
+.sh-qs-num {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white
+}
+
+.sh-qs-num span {
+    color: var(--red)
+}
+
+.sh-qs-label {
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, .4);
+    margin-top: 2px
+}
+
+/* HERO RIGHT — Global presence card */
+.sh-right {
+    position: relative
+}
+
+.sh-card {
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, .45)
+}
+
+.sh-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px
+}
+
+.sh-card-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .5)
+}
+
+.sh-card-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(212, 160, 23, .15);
+    color: var(--gold-light);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px
+}
+
+.sh-card-badge span {
+    width: 6px;
+    height: 6px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    animation: pulseDot 2s infinite
+}
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: .5
+    }
+}
+
+/* Country flags grid */
+.country-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 18px
+}
+
+.country-item {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: default
+}
+
+.country-item:hover {
+    background: rgba(200, 16, 46, .15);
+    border-color: rgba(200, 16, 46, .3);
+    transform: translateY(-2px)
+}
+
+.country-flag {
+    font-size: 20px;
+    line-height: 1;
+    margin-bottom: 4px
+}
+
+.country-name {
+    font-size: 10px;
+    color: rgba(255, 255, 255, .5);
+    font-weight: 600
+}
+
+.country-count {
+    font-size: 9px;
+    color: var(--red);
+    margin-top: 1px;
+    font-weight: 700
+}
+
+.sh-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, .07);
+    margin: 14px 0
+}
+
+.sh-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+
+.sh-metric {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 8px;
+    padding: 12px 14px
+}
+
+.sh-metric-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, .4);
+    margin-bottom: 4px
+}
+
+.sh-metric-val {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white
+}
+
+.sh-metric-val .up {
+    color: #4ade80;
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 3px
+}
+
+.sh-metric-val .gold {
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 3px
+}
+
+/* Floating badges */
+.sh-float {
+    position: absolute;
+    background: white;
+    border-radius: 10px;
+    padding: 14px 18px;
+    box-shadow: var(--shadow-md);
+    z-index: 3
+}
+
+.sh-float.f1 {
+    top: -20px;
+    right: -20px
+}
+
+.sh-float.f2 {
+    bottom: -18px;
+    left: -20px
+}
+
+.sf-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-500);
+    margin-bottom: 4px
+}
+
+.sf-val {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1
+}
+
+.sf-val span {
+    color: var(--red);
+    font-size: 12px
+}
+
+.sf-sub {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 3px
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.sh-tag {
+    animation: fadeInUp .55s ease both
+}
+
+.sh-title {
+    animation: fadeInUp .65s .08s ease both
+}
+
+.sh-desc {
+    animation: fadeInUp .65s .16s ease both
+}
+
+.sh-actions {
+    animation: fadeInUp .65s .24s ease both
+}
+
+.sh-quick-stats {
+    animation: fadeInUp .65s .32s ease both
+}
+
+/* ============================================================
+   NRI CHALLENGES SECTION
+============================================================ */
+.challenges {
+    background: var(--gray-50)
+}
+
+.ch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 80px;
+    align-items: center
+}
+
+.ch-body {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.9
+}
+
+.ch-body p {
+    margin-bottom: 18px
+}
+
+.ch-body strong {
+    color: var(--black);
+    font-weight: 600
+}
+
+.ch-highlight {
+    border-left: 3px solid var(--red);
+    padding: 16px 20px;
+    background: rgba(200, 16, 46, .04);
+    border-radius: 0 6px 6px 0;
+    margin: 24px 0;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--black-2);
+    line-height: 1.7
+}
+
+.challenge-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.chal-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 18px 20px;
+    transition: var(--transition)
+}
+
+.chal-card:hover {
+    border-color: var(--red);
+    box-shadow: var(--shadow-sm);
+    transform: translateX(4px)
+}
+
+.chal-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    transition: var(--transition)
+}
+
+.chal-card:hover .chal-icon {
+    transform: scale(1.1)
+}
+
+.chal-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    color: var(--black)
+}
+
+.chal-card p {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.65
+}
+
+.chal-solved {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #15803d;
+    background: rgba(74, 222, 128, .10);
+    padding: 2px 8px;
+    border-radius: 100px
+}
+
+/* ============================================================
+   WHO IS NRI — ELIGIBILITY
+============================================================ */
+.nri-types {
+    background: var(--white)
+}
+
+.nt-tabs {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 48px;
+    background: white
+}
+
+.nt-tab {
+    flex: 1;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: var(--transition);
+    border-right: 1px solid var(--gray-200)
+}
+
+.nt-tab:last-child {
+    border-right: none
+}
+
+.nt-tab.active {
+    color: var(--white);
+    background: var(--red)
+}
+
+.nt-tab:not(.active):hover {
+    background: var(--gray-50);
+    color: var(--red)
+}
+
+.nt-panel {
+    display: none
+}
+
+.nt-panel.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start
+}
+
+.nt-def {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 28px
+}
+
+.nt-def h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--black)
+}
+
+.nt-def .badge-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px
+}
+
+.nt-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 100px;
+    letter-spacing: .5px
+}
+
+.nt-badge.red {
+    background: rgba(200, 16, 46, .10);
+    color: var(--red)
+}
+
+.nt-badge.gold {
+    background: rgba(212, 160, 23, .12);
+    color: #8a6500
+}
+
+.nt-badge.green {
+    background: rgba(74, 222, 128, .12);
+    color: #15803d
+}
+
+.nt-def p {
+    font-size: 13.5px;
+    color: var(--gray-700);
+    line-height: 1.8;
+    margin-bottom: 14px
+}
+
+.nt-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.nt-rule {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--gray-700)
+}
+
+.nt-rule i {
+    color: var(--red);
+    margin-top: 3px;
+    flex-shrink: 0;
+    font-size: 12px
+}
+
+.nt-rights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.nt-right-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 16px 18px;
+    transition: var(--transition)
+}
+
+.nt-right-card:hover {
+    border-color: var(--red);
+    box-shadow: var(--shadow-sm)
+}
+
+.nt-right-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.nt-right-card h4 i {
+    color: var(--red);
+    font-size: 12px
+}
+
+.nt-right-card p {
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.65
+}
+
+/* ============================================================
+   ACCOUNTS & BANKING
+============================================================ */
+.accounts {
+    background: var(--gray-50)
+}
+
+.acc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px
+}
+
+.acc-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition)
+}
+
+.acc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--red)
+}
+
+.acc-header {
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden
+}
+
+.acc-header::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .1)
+}
+
+.acc-abbr {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1
+}
+
+.acc-full {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .8);
+    position: relative;
+    z-index: 1
+}
+
+.acc-card-body {
+    padding: 20px 24px
+}
+
+.acc-desc {
+    font-size: 13.5px;
+    color: var(--gray-500);
+    line-height: 1.75;
+    margin-bottom: 16px
+}
+
+.acc-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.acc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 13px
+}
+
+.acc-row:last-child {
+    border-bottom: none
+}
+
+.acc-row-label {
+    color: var(--gray-500)
+}
+
+.acc-row-val {
+    font-weight: 700;
+    color: var(--black)
+}
+
+.acc-row-val.green {
+    color: #15803d
+}
+
+.acc-row-val.red {
+    color: var(--red)
+}
+
+.acc-row-val.gold {
+    color: #8a6500
+}
+
+.acc-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px
+}
+
+.acc-tag {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 100px
+}
+
+.at-green {
+    background: rgba(74, 222, 128, .10);
+    color: #15803d
+}
+
+.at-yellow {
+    background: rgba(212, 160, 23, .10);
+    color: #8a6500
+}
+
+.at-red {
+    background: rgba(200, 16, 46, .10);
+    color: var(--red)
+}
+
+.at-gray {
+    background: var(--gray-100);
+    color: var(--gray-700)
+}
+
+/* ============================================================
+   TAXATION SECTION
+============================================================ */
+.taxation {
+    background: var(--white)
+}
+
+.tax-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start
+}
+
+.tax-sticky {
+    position: sticky;
+    top: calc(var(--nav-h) + 24px)
+}
+
+.tax-table-wrap {
+    overflow-x: auto
+}
+
+.tax-table {
+    width: 100%;
+    border-collapse: collapse
+}
+
+.tax-table th {
+    background: var(--black);
+    color: rgba(255, 255, 255, .7);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    text-align: left
+}
+
+.tax-table th:first-child {
+    border-radius: 8px 0 0 0
+}
+
+.tax-table th:last-child {
+    border-radius: 0 8px 0 0
+}
+
+.tax-table td {
+    padding: 13px 18px;
+    font-size: 13px;
+    color: var(--gray-700);
+    border-bottom: 1px solid var(--gray-100)
+}
+
+.tax-table tr:last-child td {
+    border-bottom: none
+}
+
+.tax-table tr:hover td {
+    background: var(--gray-50)
+}
+
+.tax-table .bold {
+    font-weight: 700;
+    color: var(--black)
+}
+
+.tax-table .green {
+    color: #15803d;
+    font-weight: 700
+}
+
+.tax-table .red {
+    color: var(--red);
+    font-weight: 700
+}
+
+.tax-treaty-box {
+    background: linear-gradient(135deg, var(--black), #1a0a0d);
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 20px;
+    border: 1px solid rgba(200, 16, 46, .2)
+}
+
+.tt-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.tt-title i {
+    color: var(--red)
+}
+
+.tt-flags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px
+}
+
+.tt-flag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, .06);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, .6);
+    border: 1px solid rgba(255, 255, 255, .07);
+    transition: var(--transition)
+}
+
+.tt-flag:hover {
+    border-color: var(--red);
+    color: white
+}
+
+/* ============================================================
+   REPATRIATION FLOW
+============================================================ */
+.repatriation {
+    background: var(--gray-50)
+}
+
+.rep-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto
+}
+
+.rep-flow::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gray-200)
+}
+
+.rep-step {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 32px;
+    position: relative
+}
+
+.rep-step:last-child {
+    padding-bottom: 0
+}
+
+.rep-dot-col {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.rep-dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    background: white;
+    transition: var(--transition);
+    cursor: default;
+    z-index: 1
+}
+
+.rep-step:hover .rep-dot {
+    box-shadow: 0 0 0 3px var(--red), 0 4px 20px rgba(200, 16, 46, .2)
+}
+
+.rep-num {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--red);
+    margin-top: 4px
+}
+
+.rep-content {
+    flex: 1;
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 18px 22px;
+    transition: var(--transition)
+}
+
+.rep-step:hover .rep-content {
+    border-color: var(--red);
+    box-shadow: var(--shadow-sm)
+}
+
+.rep-content h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--black)
+}
+
+.rep-content p {
+    font-size: 13.5px;
+    color: var(--gray-500);
+    line-height: 1.7
+}
+
+.rep-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 100px
+}
+
+.rt-green {
+    background: rgba(74, 222, 128, .10);
+    color: #15803d
+}
+
+.rt-yellow {
+    background: rgba(212, 160, 23, .12);
+    color: #8a6500
+}
+
+.rt-red {
+    background: rgba(200, 16, 46, .10);
+    color: var(--red)
+}
+
+/* ============================================================
+   SERVICES GRID
+============================================================ */
+.nri-services {
+    background: var(--white)
+}
+
+.ns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px
+}
+
+.ns-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 28px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden
+}
+
+.ns-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform .3s
+}
+
+.ns-card:hover::after {
+    transform: scaleX(1)
+}
+
+.ns-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--red);
+    background: white
+}
+
+.ns-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 18px;
+    transition: var(--transition)
+}
+
+.ns-card:hover .ns-icon {
+    transform: scale(1.08)
+}
+
+.ns-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--black)
+}
+
+.ns-card p {
+    font-size: 13.5px;
+    color: var(--gray-500);
+    line-height: 1.75
+}
+
+.ns-list {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px
+}
+
+.ns-list li {
+    font-size: 12.5px;
+    color: var(--gray-700);
+    display: flex;
+    align-items: center;
+    gap: 7px
+}
+
+.ns-list li i {
+    color: var(--red);
+    font-size: 10px;
+    flex-shrink: 0
+}
+
+/* ============================================================
+   COUNTRY-SPECIFIC GUIDE
+============================================================ */
+.country-guide {
+    background: var(--gray-50)
+}
+
+.cg-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 0;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden
+}
+
+.cg-sidebar {
+    background: var(--black);
+    padding: 0
+}
+
+.cg-sidebar-item {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    transition: var(--transition)
+}
+
+.cg-sidebar-item:hover,
+.cg-sidebar-item.active {
+    background: rgba(200, 16, 46, .2);
+    border-left: 3px solid var(--red)
+}
+
+.cg-sidebar-item:not(.active) {
+    border-left: 3px solid transparent
+}
+
+.cg-flag {
+    font-size: 22px
+}
+
+.cg-cname {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .8)
+}
+
+.cg-ctag {
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, .4)
+}
+
+.cg-panel {
+    display: none;
+    padding: 32px
+}
+
+.cg-panel.active {
+    display: block
+}
+
+.cg-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-100)
+}
+
+.cgp-flag {
+    font-size: 36px
+}
+
+.cgp-country {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black)
+}
+
+.cgp-sub {
+    font-size: 13px;
+    color: var(--gray-500);
+    margin-top: 2px
+}
+
+.cg-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px
+}
+
+.cgf {
+    background: var(--gray-50);
+    border-radius: 6px;
+    padding: 14px
+}
+
+.cgf-label {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px
+}
+
+.cgf-val {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black)
+}
+
+.cgf-val.green {
+    color: #15803d
+}
+
+.cg-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.cg-tip {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--gray-700);
+    line-height: 1.65
+}
+
+.cg-tip i {
+    color: var(--red);
+    margin-top: 3px;
+    flex-shrink: 0;
+    font-size: 12px;
+    width: 14px
+}
+
+/* ============================================================
+   PROCESS
+============================================================ */
+.nri-process {
+    background: var(--black)
+}
+
+.np-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative
+}
+
+.np-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: rgba(255, 255, 255, .08);
+    pointer-events: none
+}
+
+.np-step {
+    padding: 0 14px;
+    text-align: center
+}
+
+.np-num {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .05);
+    border: 2px solid rgba(255, 255, 255, .10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .3);
+    transition: var(--transition);
+    margin: 0 auto 20px;
+    cursor: default;
+    position: relative;
+    z-index: 1
+}
+
+.np-step:hover .np-num,
+.np-step.active .np-num {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+    box-shadow: 0 0 0 8px rgba(200, 16, 46, .12)
+}
+
+.np-step h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .85);
+    margin-bottom: 8px
+}
+
+.np-step p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, .38);
+    line-height: 1.65
+}
+
+/* ============================================================
+   TESTIMONIALS — NRI
+============================================================ */
+.nri-testimonials {
+    background: var(--gray-50)
+}
+
+.nt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px
+}
+
+.nti-card {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 28px;
+    transition: var(--transition)
+}
+
+.nti-card:hover {
+    border-color: var(--red);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px)
+}
+
+.nti-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 14px
+}
+
+.nti-flag {
+    font-size: 28px
+}
+
+.nti-stars {
+    color: var(--red);
+    font-size: 13px;
+    letter-spacing: 2px
+}
+
+.nti-text {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: var(--gray-700);
+    font-style: italic;
+    margin-bottom: 18px
+}
+
+.nti-author {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.nti-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+    font-family: var(--font-display)
+}
+
+.nti-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black)
+}
+
+.nti-role {
+    font-size: 12px;
+    color: var(--gray-500)
+}

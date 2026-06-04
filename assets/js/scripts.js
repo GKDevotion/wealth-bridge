@@ -223,6 +223,39 @@ function calcRetirement() {
     document.getElementById(id).addEventListener('input', calcRetirement);
 });
 
-if( $(".r-age").length > 0 ){
+if ($(".r-age").length > 0) {
     calcRetirement(); // init
 }
+
+
+/* ── NRI Type Tabs ── */
+document.querySelectorAll('.nt-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const key = tab.dataset.ntab;
+        document.querySelectorAll('.nt-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.nt-panel').forEach(p => p.classList.remove('active'));
+        const target = document.getElementById('ntab-' + key);
+        if (target) { target.classList.add('active'); AOS.refresh() }
+    });
+});
+
+/* ── Country Guide Sidebar ── */
+document.querySelectorAll('.cg-sidebar-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const key = item.dataset.country;
+        document.querySelectorAll('.cg-sidebar-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        document.querySelectorAll('.cg-panel').forEach(p => p.classList.remove('active'));
+        const target = document.getElementById('country-' + key);
+        if (target) target.classList.add('active');
+    });
+});
+
+/* ── Process hover ── */
+document.querySelectorAll('.np-step').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.np-step').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+    });
+});
