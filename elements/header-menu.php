@@ -20,7 +20,7 @@
 <nav class="navbar" id="navbar">
     <div class="container">
         <!-- LOGO -->
-        <a href="#" class="logo">
+        <a href="index" class="logo">
             <div class="logo-icon">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3 17L9 11L13 15L21 7M21 7V12M21 7H16"/>
@@ -66,21 +66,21 @@
                         <li><a href="financial-planning-couples"><i class="fas fa-heart"></i> Planning for Couples</a></li>
                         <li><a href="financial-planning-women"><i class="fas fa-female"></i> Planning for Women</a></li>
                         <li><a href="planning-for-men"><i class="fas fa-male"></i> Planning for Men</a></li>
-                        <li><a href="#"><i class="fas fa-gem"></i> Wealth Management</a></li>
-                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Child Education</a></li>
+                        <li><a href="wealth-management"><i class="fas fa-gem"></i> Wealth Management</a></li>
+                        <li><a href="child-education"><i class="fas fa-graduation-cap"></i> Child Education</a></li>
                     </ul>
                     </div>
                     <div class="mega-col">
                     <div class="mega-col-title">Insurance & Investment</div>
                     <ul>
-                        <li><a href="#"><i class="fas fa-shield-alt"></i> Life Insurance</a></li>
-                        <li><a href="#"><i class="fas fa-hospital"></i> Health Insurance</a></li>
-                        <li><a href="#"><i class="fas fa-percent"></i> Tax-Efficient Invest.</a></li>
-                        <li><a href="#"><i class="fas fa-building"></i> Real Estate Invest.</a></li>
-                        <li><a href="#"><i class="fas fa-ring"></i> Child Wedding Plan.</a></li>
-                        <li><a href="#"><i class="fas fa-plane"></i> Vacation Planning</a></li>
-                        <li><a href="#"><i class="fas fa-coins"></i> Asset Management</a></li>
-                        <li><a href="#"><i class="fas fa-briefcase"></i> Business Planning</a></li>
+                        <li><a href="life-insurance"><i class="fas fa-shield-alt"></i> Life Insurance</a></li>
+                        <li><a href="health-insurance"><i class="fas fa-hospital"></i> Health Insurance</a></li>
+                        <li><a href="tax-efficient-investing"><i class="fas fa-percent"></i> Tax-Efficient Invest.</a></li>
+                        <li><a href="real-estate-investment"><i class="fas fa-building"></i> Real Estate Invest.</a></li>
+                        <li><a href="child-wedding-plan"><i class="fas fa-ring"></i> Child Wedding Plan.</a></li>
+                        <li><a href="vacation-planning"><i class="fas fa-plane"></i> Vacation Planning</a></li>
+                        <li><a href="asset-management"><i class="fas fa-coins"></i> Asset Management</a></li>
+                        <li><a href="business-planning"><i class="fas fa-briefcase"></i> Business Planning</a></li>
                     </ul>
                     </div>
                     <div class="mega-featured">
@@ -96,11 +96,11 @@
                 <a class="nav-link" href="#">Insights <i class="fas fa-chevron-down"></i></a>
                 <div class="mega-menu single">
                 <ul>
-                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
-                    <li><a href="#"><i class="fas fa-pen"></i> Blog</a></li>
-                    <li><a href="#"><i class="fas fa-chart-bar"></i> Market Update</a></li>
-                    <li><a href="#"><i class="fas fa-calendar"></i> Events & Webinars</a></li>
-                    <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="news"><i class="fas fa-newspaper"></i> News</a></li>
+                    <li><a href="blog"><i class="fas fa-pen"></i> Blog</a></li>
+                    <li><a href="market-update"><i class="fas fa-chart-bar"></i> Market Update</a></li>
+                    <li><a href="events-webinars"><i class="fas fa-calendar"></i> Events & Webinars</a></li>
+                    <li><a href="faqs"><i class="fas fa-question-circle"></i> FAQs</a></li>
                 </ul>
                 </div>
             </li>
@@ -112,20 +112,20 @@
                     <div class="mega-col">
                     <div class="mega-col-title">Financial Calculators</div>
                     <ul>
-                        <li><a href="#"><i class="fas fa-calculator"></i> Investment Calculator</a></li>
-                        <li><a href="#"><i class="fas fa-wallet"></i> Personal Finance Calc.</a></li>
-                        <li><a href="#"><i class="fas fa-child"></i> Children & Family Calc.</a></li>
-                        <li><a href="#"><i class="fas fa-umbrella"></i> Retirement Calculator</a></li>
-                        <li><a href="#"><i class="fas fa-graduation-cap"></i> Education & Career</a></li>
+                        <li><a href="investment-calculator"><i class="fas fa-calculator"></i> Investment Calculator</a></li>
+                        <li><a href="personal-finance-calculator"><i class="fas fa-wallet"></i> Personal Finance Calc.</a></li>
+                        <li><a href="children-family-calculator"><i class="fas fa-child"></i> Children & Family Calc.</a></li>
+                        <li><a href="retirement-calculator"><i class="fas fa-umbrella"></i> Retirement Calculator</a></li>
+                        <li><a href="education-career-calculator"><i class="fas fa-graduation-cap"></i> Education & Career</a></li>
                     </ul>
                     </div>
                     <div class="mega-col">
                     <div class="mega-col-title">More Tools</div>
                     <ul>
-                        <li><a href="#"><i class="fas fa-star"></i> Lifestyle & Goal Calc.</a></li>
-                        <li><a href="#"><i class="fas fa-file-invoice"></i> Tax Calculator</a></li>
-                        <li><a href="#"><i class="fas fa-money-bill-wave"></i> Income & Cash Flow</a></li>
-                        <li><a href="#"><i class="fas fa-hand-holding-usd"></i> Loan Calculator</a></li>
+                        <li><a href="lifestyle-goal-calculator"><i class="fas fa-star"></i> Lifestyle & Goal Calc.</a></li>
+                        <li><a href="tax-calculator"><i class="fas fa-file-invoice"></i> Tax Calculator</a></li>
+                        <li><a href="income-cash-flow-calculator"><i class="fas fa-money-bill-wave"></i> Income & Cash Flow</a></li>
+                        <li><a href="loan-calculator"><i class="fas fa-hand-holding-usd"></i> Loan Calculator</a></li>
                     </ul>
                     </div>
                 </div>
@@ -170,38 +170,38 @@
         <div class="mobile-nav-item">
             <div class="mobile-nav-link" data-toggle>Who We Are <i class="fas fa-chevron-down"></i></div>
             <div class="mobile-sub">
-                <a href="#">Our History</a><a href="#">Who We Serve</a>
-                <a href="#">Leadership Team</a><a href="#">Client Testimonials</a>
-                <a href="#">Our Approach</a><a href="#">Vision & Mission</a>
+                <a href="our-history">Our History</a><a href="who-we-serve">Who We Serve</a>
+                <a href="leadership-team">Leadership Team</a><a href="client-testimonials">Client Testimonials</a>
+                <a href="our-approach">Our Approach</a><a href="vision-mission">Vision & Mission</a>
             </div>
         </div>
         <div class="mobile-nav-item">
             <div class="mobile-nav-link" data-toggle>Our Services <i class="fas fa-chevron-down"></i></div>
             <div class="mobile-sub">
-                <a href="#">Investment Planning</a><a href="#">Retirement Planning</a>
-                <a href="#">NRI Financial Advisory</a><a href="#">Planning for Couples</a>
-                <a href="#">Planning for Women</a><a href="#">Planning for Men</a>
-                <a href="#">Wealth Management</a><a href="#">Life Insurance</a>
-                <a href="#">Health Insurance</a><a href="#">Tax-Efficient Investment</a>
-                <a href="#">Real Estate Investment</a><a href="#">Child Education Planning</a>
-                <a href="#">Child Wedding Planning</a><a href="#">Vacation Planning</a>
-                <a href="#">Asset Management</a><a href="#">Business Planning</a>
+                <a href="investment-planning">Investment Planning</a><a href="retirement-planning">Retirement Planning</a>
+                <a href="nri-financial-advisory">NRI Financial Advisory</a><a href="planning-for-couples">Planning for Couples</a>
+                <a href="planning-for-women">Planning for Women</a><a href="planning-for-men">Planning for Men</a>
+                <a href="wealth-management">Wealth Management</a><a href="life-insurance">Life Insurance</a>
+                <a href="health-insurance">Health Insurance</a><a href="tax-efficient-investment">Tax-Efficient Investment</a>
+                <a href="real-estate-investment">Real Estate Investment</a><a href="child-education-planning">Child Education Planning</a>
+                <a href="child-wedding-planning">Child Wedding Planning</a><a href="vacation-planning">Vacation Planning</a>
+                <a href="asset-management">Asset Management</a><a href="business-planning">Business Planning</a>
             </div>
         </div>
         <div class="mobile-nav-item">
             <div class="mobile-nav-link" data-toggle>Insights <i class="fas fa-chevron-down"></i></div>
             <div class="mobile-sub">
-                <a href="#">News</a><a href="#">Blog</a><a href="#">Market Update</a>
-                <a href="#">Events & Webinars</a><a href="#">FAQs</a>
+                <a href="news">News</a><a href="blog">Blog</a><a href="market-update">Market Update</a>
+                <a href="events-webinars">Events & Webinars</a><a href="faqs">FAQs</a>
             </div>
         </div>
         <div class="mobile-nav-item">
             <div class="mobile-nav-link" data-toggle>Resources <i class="fas fa-chevron-down"></i></div>
             <div class="mobile-sub">
-                <a href="#">Investment Calculator</a><a href="#">Personal Finance Calc.</a>
-                <a href="#">Children & Family Calc.</a><a href="#">Retirement Calculator</a>
-                <a href="#">Education & Career Calc.</a><a href="#">Lifestyle & Goal Calc.</a>
-                <a href="#">Tax Calculator</a><a href="#">Income & Cash Flow</a><a href="#">Loan Calculator</a>
+                <a href="investment-calculator">Investment Calculator</a><a href="personal-finance-calculator">Personal Finance Calc.</a>
+                <a href="children-family-calculator">Children & Family Calc.</a><a href="retirement-calculator">Retirement Calculator</a>
+                <a href="education-career-calculator">Education & Career Calc.</a><a href="lifestyle-goal-calculator">Lifestyle & Goal Calc.</a>
+                <a href="tax-calculator">Tax Calculator</a><a href="income-cash-flow-calculator">Income & Cash Flow</a><a href="loan-calculator">Loan Calculator</a>
             </div>
         </div>
         <div class="mobile-nav-item"><a class="mobile-nav-link" href="#sebi" style="color:var(--red); display:block">SEBI Disclosure</a></div>

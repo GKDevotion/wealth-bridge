@@ -490,9 +490,74 @@ function calcFI() {
     document.getElementById('gaugePath').style.strokeDashoffset = offset;
 }
 
-if( $("#fi-age").length > 0 ){
+if ($("#fi-age").length > 0) {
     ['fi-age', 'fi-target-age', 'fi-exp', 'fi-break', 'fi-roi', 'fi-life'].forEach(id => {
         document.getElementById(id).addEventListener('input', calcFI);
     });
     calcFI();
+}
+
+// ── Coverage Tabs ──
+function switchTab(btn, panelId) {
+    document.querySelectorAll('.cov-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.coverage-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById(panelId);
+    panel.classList.add('active');
+    panel.setAttribute('data-aos', 'fade-up');
+    AOS.refreshHard();
+}
+
+// ── Calculator ──
+const saValues = [25, 50, 75, 100, 150, 200, 300, 500, 750, 1000];
+const saLabels = ['₹25L', '₹50L', '₹75L', '₹1 Cr', '₹1.5 Cr', '₹2 Cr', '₹3 Cr', '₹5 Cr', '₹7.5 Cr', '₹10 Cr'];
+const termValues = [10, 15, 20, 25, 30, 40];
+
+function updateSALabel() {
+    const idx = parseInt(document.getElementById('calcSA').value) - 1;
+    document.getElementById('saLabel').textContent = saLabels[idx];
+}
+function updateTermLabel() {
+    const idx = parseInt(document.getElementById('calcTerm').value) - 1;
+    document.getElementById('termLabel').textContent = termValues[idx] + ' Years';
+}
+
+function calcPremium() {
+    const saIdx = parseInt(document.getElementById('calcSA').value) - 1;
+    const termIdx = parseInt(document.getElementById('calcTerm').value) - 1;
+    const sa = saValues[saIdx];
+    const term = termValues[termIdx];
+    const gender = document.getElementById('calcGender').value;
+    const smoke = document.getElementById('calcSmoke').value;
+    const plan = document.getElementById('calcPlan').value;
+    const dob = document.getElementById('calcDob').value;
+
+    let age = 30;
+    if (dob) {
+        const d = new Date(dob);
+        age = new Date().getFullYear() - d.getFullYear();
+    }
+    age = Math.max(18, Math.min(65, age));
+
+    // base rate per lakh per year
+    let baseRate = 0.6; // ₹/lakh/month
+    if (plan === 'Whole Life') baseRate = 1.6;
+    if (plan === 'Endowment') baseRate = 2.2;
+    if (plan === 'ULIP') baseRate = 1.8;
+
+    let premium = sa * baseRate;
+    if (age > 40) premium *= 1.3;
+    if (age > 50) premium *= 1.6;
+    if (gender === 'Male') premium *= 1.05;
+    if (smoke === 'Yes') premium *= 1.4;
+    premium *= (1 + (term - 20) * 0.008);
+    premium = Math.max(300, Math.round(premium / 10) * 10);
+
+    document.getElementById('calcResult').textContent = '₹' + premium.toLocaleString('en-IN');
+}
+
+if( $("#calcSA").length > 0 ) {
+    updateSALabel(); 
+    updateTermLabel(); 
+    calcPremium();
 }

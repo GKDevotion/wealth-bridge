@@ -26,12 +26,12 @@
           <div class="footer-col">
             <h4>Who We Are</h4>
             <ul>
-              <li><a href="#">Our History</a></li>
-              <li><a href="#">Who We Serve</a></li>
-              <li><a href="#">Leadership Team</a></li>
-              <li><a href="#">Client Testimonials</a></li>
-              <li><a href="#">Our Approach</a></li>
-              <li><a href="#">Vision & Mission</a></li>
+              <li><a href="our-history">Our History</a></li>
+              <li><a href="who-we-serve">Who We Serve</a></li>
+              <li><a href="leadership-team">Leadership Team</a></li>
+              <li><a href="client-testimonials">Client Testimonials</a></li>
+              <li><a href="our-approach">Our Approach</a></li>
+              <li><a href="vision-mission">Vision & Mission</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -41,37 +41,37 @@
               <li><a href="retirement-planning">Retirement Planning</a></li>
               <li><a href="nri-financial-advisory">NRI Financial Advisory</a></li>
               <li><a href="financial-planning-couples">Planning for Couples</a></li>
-              <li><a href="#">Wealth Management</a></li>
-              <li><a href="#">Life Insurance</a></li>
-              <li><a href="#">Tax Planning</a></li>
-              <li><a href="#">Real Estate</a></li>
-              <li><a href="#">Business Planning</a></li>
+              <li><a href="wealth-management">Wealth Management</a></li>
+              <li><a href="life-insurance">Life Insurance</a></li>
+              <li><a href="tax-planning">Tax Planning</a></li>
+              <li><a href="real-estate">Real Estate</a></li>
+              <li><a href="business-planning">Business Planning</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Resources</h4>
             <ul>
-              <li><a href="#">Investment Calculator</a></li>
-              <li><a href="#">Retirement Calc.</a></li>
-              <li><a href="#">Tax Calculator</a></li>
-              <li><a href="#">Loan Calculator</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Market Updates</a></li>
-              <li><a href="#">Events & Webinars</a></li>
-              <li><a href="#">FAQs</a></li>
+              <li><a href="investment-calculator">Investment Calculator</a></li>
+              <li><a href="retirement-calculator">Retirement Calc.</a></li>
+              <li><a href="tax-calculator">Tax Calculator</a></li>
+              <li><a href="loan-calculator">Loan Calculator</a></li>
+              <li><a href="blog">Blog</a></li>
+              <li><a href="market-updates">Market Updates</a></li>
+              <li><a href="events-webinars">Events & Webinars</a></li>
+              <li><a href="faqs">FAQs</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Legal</h4>
             <ul>
-              <li><a href="#">SEBI Disclosure</a></li>
-              <li><a href="#">Beware of Imposters</a></li>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Disclaimer</a></li>
-              <li><a href="#">Grievance Redressal</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="sebi-disclosure">SEBI Disclosure</a></li>
+              <li><a href="beware-of-imposters">Beware of Imposters</a></li>
+              <li><a href="privacy-policy">Privacy Policy</a></li>
+              <li><a href="terms-of-service">Terms of Service</a></li>
+              <li><a href="disclaimer">Disclaimer</a></li>
+              <li><a href="grievance-redressal">Grievance Redressal</a></li>
+              <li><a href="pricing">Pricing</a></li>
+              <li><a href="contact">Contact</a></li>
             </ul>
           </div>
         </div>
