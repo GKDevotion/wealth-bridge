@@ -13,7 +13,7 @@ RewriteRule ^investment-planning investment-planning.php?slug=$1 [L,QSA]
 RewriteRule ^nri-financial-advisory nri-financial-advisory.php?slug=$1 [L,QSA]
 RewriteRule ^financial-planning-couples financial-planning-couples.php?slug=$1 [L,QSA]
 RewriteRule ^planning-for-men planning-for-men.php?slug=$1 [L,QSA]
-RewriteRule ^planning-for-women planning-for-women.php?slug=$1 [L,QSA]
+RewriteRule ^financial-planning-women financial-planning-women.php?slug=$1 [L,QSA]
 
 RewriteRule ^life-insurance life-insurance.php?slug=$1 [L,QSA]
 RewriteRule ^blog blog.php?slug=$1 [L,QSA]
