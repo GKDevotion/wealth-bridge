@@ -25,6 +25,9 @@ require_once __DIR__ . '../../app/Helpers/Custom.php';
         <!-- Custom CSS -->
         <link href="<?php echo UrlHelper::asset('css/style.css'); ?>" rel="stylesheet">
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
     </head>
 <body>
     <?php include_once ('elements/header-menu.php'); ?>

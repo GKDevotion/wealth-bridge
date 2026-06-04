@@ -219,11 +219,11 @@ function calcRetirement() {
         `conic-gradient(var(--red) 0% ${investedPct}%,var(--black) ${investedPct}% ${investedPct + gainPct}%,var(--gray-200) ${investedPct + gainPct}% 100%)`;
 }
 
-['r-age', 'r-ret', 'r-exp', 'r-inf', 'r-roi', 'r-life'].forEach(id => {
-    document.getElementById(id).addEventListener('input', calcRetirement);
-});
+if ($("#r-age").length > 0) {
+    ['r-age', 'r-ret', 'r-exp', 'r-inf', 'r-roi', 'r-life'].forEach(id => {
+        document.getElementById(id).addEventListener('input', calcRetirement);
+    });
 
-if ($(".r-age").length > 0) {
     calcRetirement(); // init
 }
 
@@ -363,7 +363,7 @@ const hi = setInterval(spawnHeart, 1200);
 setTimeout(() => clearInterval(hi), 12000); // stop after 10 hearts
 
 (function () {
- 
+
     /* ── Animated bar chart (IntersectionObserver) ── */
     var fills = document.querySelectorAll('.wcc-bar-fill');
     if (fills.length) {
@@ -380,17 +380,17 @@ setTimeout(() => clearInterval(hi), 12000); // stop after 10 hearts
 
     /* ── Counter animation ── */
     function animateNum(el, target, isDecimal) {
-        var start     = 0;
-        var duration  = 1800;
+        var start = 0;
+        var duration = 1800;
         var startTime = null;
         function step(ts) {
             if (!startTime) startTime = ts;
             var progress = Math.min((ts - startTime) / duration, 1);
-            var ease     = 1 - Math.pow(1 - progress, 3);
-            var current  = start + (target - start) * ease;
+            var ease = 1 - Math.pow(1 - progress, 3);
+            var current = start + (target - start) * ease;
             el.textContent = (isDecimal ? '₹' + current.toFixed(1) + 'Cr+' :
-                              current >= 1000 ? Math.floor(current).toLocaleString('en-IN') + '+' :
-                              Math.floor(current) + ' Yrs');
+                current >= 1000 ? Math.floor(current).toLocaleString('en-IN') + '+' :
+                    Math.floor(current) + ' Yrs');
             if (progress < 1) requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
@@ -402,7 +402,7 @@ setTimeout(() => clearInterval(hi), 12000); // stop after 10 hearts
             entries.forEach(function (e) {
                 if (e.isIntersecting && !e.target.dataset.done) {
                     e.target.dataset.done = '1';
-                    var target    = parseFloat(e.target.dataset.counter);
+                    var target = parseFloat(e.target.dataset.counter);
                     var isDecimal = e.target.dataset.suffix === 'Cr+';
                     animateNum(e.target, target, isDecimal);
                     statObs.unobserve(e.target);
@@ -412,3 +412,87 @@ setTimeout(() => clearInterval(hi), 12000); // stop after 10 hearts
         statEls.forEach(function (el) { statObs.observe(el); });
     }
 })();
+
+/* ── Process hover ── */
+document.querySelectorAll('.wp-step').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.wp-step').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+    });
+});
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement, isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+
+function calcFI() {
+    const curAge = +document.getElementById('fi-age').value;
+    const fiAge = +document.getElementById('fi-target-age').value;
+    const exp = +document.getElementById('fi-exp').value;
+    const brk = +document.getElementById('fi-break').value;
+    const roi = +document.getElementById('fi-roi').value / 100;
+    const life = +document.getElementById('fi-life').value;
+
+    document.getElementById('lbl-age').textContent = curAge;
+    document.getElementById('lbl-fi-age').textContent = fiAge;
+    document.getElementById('lbl-exp').textContent = '₹' + exp.toLocaleString('en-IN');
+    document.getElementById('lbl-break').textContent = brk;
+    document.getElementById('lbl-roi').textContent = (roi * 100).toFixed(1);
+    document.getElementById('lbl-life').textContent = life;
+
+    const yearsToFI = Math.max(fiAge - curAge, 1);
+    const retYrs = Math.max(life - fiAge, 5);
+    const inf = 0.06; // fixed 6% inflation
+    const retExp = exp * Math.pow(1 + inf, yearsToFI) * 12; // annual at retirement
+    const rReal = (1 + roi) / (1 + inf) - 1;
+
+    // Base corpus (standard PV of annuity)
+    let baseCorpus;
+    if (Math.abs(rReal) < .0001) baseCorpus = retExp * retYrs;
+    else baseCorpus = retExp * (1 - Math.pow(1 + rReal, -retYrs)) / rReal;
+
+    // Women longevity premium: 2 extra years
+    let longevityPremium;
+    if (Math.abs(rReal) < .0001) longevityPremium = retExp * 2;
+    else longevityPremium = retExp * (1 - Math.pow(1 + rReal, -2)) / rReal;
+
+    // Healthcare corpus: 15% of base
+    const healthCorpus = baseCorpus * 0.15;
+
+    const totalCorpus = baseCorpus + longevityPremium + healthCorpus;
+
+    // Active investing years (excluding break)
+    const activeYears = yearsToFI - brk;
+    const rMo = roi / 12;
+    const nMo = Math.max(activeYears * 12, 1);
+    const sip = totalCorpus * rMo / (Math.pow(1 + rMo, nMo) - 1);
+    const invested = sip * nMo;
+    const sipFundedPct = Math.min(Math.round((invested / totalCorpus) * 100), 99);
+
+    // Update DOM
+    if (totalCorpus >= 10000000) document.getElementById('fi-corpus').innerHTML = '₹<span>' + (totalCorpus / 10000000).toFixed(1) + '</span> Crore';
+    else document.getElementById('fi-corpus').innerHTML = '₹<span>' + (totalCorpus / 100000).toFixed(1) + '</span> Lakh';
+
+    document.getElementById('fi-sub').textContent = `To retire at ${fiAge} · ₹${Math.round(exp / 1000)}K/month today · ${retYrs + 2} years income`;
+    document.getElementById('fi-base').textContent = fmt(baseCorpus);
+    document.getElementById('fi-longevity').textContent = '+' + fmt(longevityPremium);
+    document.getElementById('fi-health').textContent = '+' + fmt(healthCorpus);
+    document.getElementById('fi-sip').textContent = fmtMo(sip);
+
+    // Gauge
+    document.getElementById('fi-gauge-pct').textContent = sipFundedPct + '%';
+    const offset = 157 - (157 * sipFundedPct / 100);
+    document.getElementById('gaugePath').style.strokeDashoffset = offset;
+}
+
+if( $("#fi-age").length > 0 ){
+    ['fi-age', 'fi-target-age', 'fi-exp', 'fi-break', 'fi-roi', 'fi-life'].forEach(id => {
+        document.getElementById(id).addEventListener('input', calcFI);
+    });
+    calcFI();
+}

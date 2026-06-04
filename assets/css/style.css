@@ -2931,6 +2931,7 @@ textarea.form-input {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-left: 0;
 }
 
 .footer-col ul li a {
