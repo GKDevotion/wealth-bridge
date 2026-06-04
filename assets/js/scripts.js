@@ -226,3 +226,56 @@ function calcRetirement() {
 if( $(".r-age").length > 0 ){
     calcRetirement(); // init
 }
+
+
+
+(function () {
+ 
+    /* ── Animated bar chart (IntersectionObserver) ── */
+    var fills = document.querySelectorAll('.wcc-bar-fill');
+    if (fills.length) {
+        var barObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('animated');
+                    barObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        fills.forEach(function (f) { barObs.observe(f); });
+    }
+
+    /* ── Counter animation ── */
+    function animateNum(el, target, isDecimal) {
+        var start     = 0;
+        var duration  = 1800;
+        var startTime = null;
+        function step(ts) {
+            if (!startTime) startTime = ts;
+            var progress = Math.min((ts - startTime) / duration, 1);
+            var ease     = 1 - Math.pow(1 - progress, 3);
+            var current  = start + (target - start) * ease;
+            el.textContent = (isDecimal ? '₹' + current.toFixed(1) + 'Cr+' :
+                              current >= 1000 ? Math.floor(current).toLocaleString('en-IN') + '+' :
+                              Math.floor(current) + ' Yrs');
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    var statEls = document.querySelectorAll('.hero__stat-num[data-counter]');
+    if (statEls.length) {
+        var statObs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting && !e.target.dataset.done) {
+                    e.target.dataset.done = '1';
+                    var target    = parseFloat(e.target.dataset.counter);
+                    var isDecimal = e.target.dataset.suffix === 'Cr+';
+                    animateNum(e.target, target, isDecimal);
+                    statObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        statEls.forEach(function (el) { statObs.observe(el); });
+    }
+})();

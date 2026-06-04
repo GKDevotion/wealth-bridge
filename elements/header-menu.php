@@ -65,7 +65,7 @@
                         <li><a href="#"><i class="fas fa-globe"></i> NRI Financial Advisory</a></li>
                         <li><a href="#"><i class="fas fa-heart"></i> Planning for Couples</a></li>
                         <li><a href="#"><i class="fas fa-female"></i> Planning for Women</a></li>
-                        <li><a href="#"><i class="fas fa-male"></i> Planning for Men</a></li>
+                        <li><a href="planning-for-men"><i class="fas fa-male"></i> Planning for Men</a></li>
                         <li><a href="#"><i class="fas fa-gem"></i> Wealth Management</a></li>
                         <li><a href="#"><i class="fas fa-graduation-cap"></i> Child Education</a></li>
                     </ul>

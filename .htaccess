@@ -9,5 +9,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^retirement-planning retirement-planning.php?slug=$1 [L,QSA]
 RewriteRule ^investment-planning investment-planning.php?slug=$1 [L,QSA]
 RewriteRule ^trading-glossary trading-glossary.php?slug=$1 [L,QSA]
+RewriteRule ^planning-for-men planning-for-men.php?slug=$1 [L,QSA]
 RewriteRule ^blog blog.php?slug=$1 [L,QSA]
 RewriteRule ^index index.php?slug=$1 [L,QSA]
