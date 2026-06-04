@@ -63,7 +63,7 @@
                         <li><a href="investment-planning"><i class="fas fa-chart-line"></i> Investment Planning</a></li>
                         <li><a href="retirement-planning"><i class="fas fa-umbrella"></i> Retirement Planning</a></li>
                         <li><a href="nri-financial-advisory"><i class="fas fa-globe"></i> NRI Financial Advisory</a></li>
-                        <li><a href="#"><i class="fas fa-heart"></i> Planning for Couples</a></li>
+                        <li><a href="financial-planning-couples"><i class="fas fa-heart"></i> Planning for Couples</a></li>
                         <li><a href="#"><i class="fas fa-female"></i> Planning for Women</a></li>
                         <li><a href="#"><i class="fas fa-male"></i> Planning for Men</a></li>
                         <li><a href="#"><i class="fas fa-gem"></i> Wealth Management</a></li>

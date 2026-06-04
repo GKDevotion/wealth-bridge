@@ -259,3 +259,105 @@ document.querySelectorAll('.np-step').forEach(s => {
         s.classList.add('active');
     });
 });
+
+
+/* ── Process hover ── */
+document.querySelectorAll('.cp-step').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.cp-step').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+    });
+});
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement, isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+
+/* ── Money Personality Cards ── */
+const personalityData = {
+    guardian: {
+        emoji: '🛡️', name: 'The Guardian',
+        combos: {
+            guardian: { title: 'Guardian × Guardian', sub: 'Both security-first — very aligned, but you may miss growth opportunities. Balance is critical.', emoji1: '🛡️', label1: 'Guardian', emoji2: '🛡️', label2: 'Guardian', score: 88, tips: ['Excellent financial alignment — minimal arguments about risk', 'Add a dedicated growth bucket (20–30%) managed by a fee-only advisor', 'Risk: may under-invest and lose to inflation over 20+ years', 'Annual portfolio review to ensure real returns beat inflation after tax'] },
+            explorer: { title: 'Guardian × Explorer', sub: 'Opposites attract — classic. Guard security needs, fuel Explorer ambition. Powerful if structured right.', emoji1: '🛡️', label1: 'Guardian', emoji2: '🚀', label2: 'Explorer', score: 72, tips: ['Split portfolio: 55% stability (Guardian), 45% growth (Explorer)', 'Joint decision rule: no single investment over ₹1L without both agreeing', 'Guardian manages emergency fund & insurance; Explorer manages equity', 'Quarterly advisor review prevents portfolio drift and arguments'] },
+            planner: { title: 'Guardian × Planner', sub: 'Highly complementary. Planner provides the strategy; Guardian ensures it is never over-risked.', emoji1: '🛡️', label1: 'Guardian', emoji2: '📋', label2: 'Planner', score: 90, tips: ['Near-perfect compatibility — shared love of security with room to grow', 'Planner builds the roadmap; Guardian enforces the conservative boundaries', 'Together you make evidence-based, emotion-free financial decisions', 'Risk: occasional conflict when Planner suggests equity; Guardian resists'] },
+            spender: { title: 'Guardian × Spender', sub: 'High tension potential. Guardian saves fearfully; Spender lives freely. Structure is essential.', emoji1: '🛡️', label1: 'Guardian', emoji2: '🛍️', label2: 'Spender', score: 55, tips: ['Non-negotiable: both partners need personal spending budgets with no questions asked', 'Guardian focuses on shared goals; Spender manages lifestyle allocation', 'Monthly money check-in with advisor prevents resentment build-up', 'Career break corpus and emergency fund built first — Spender must agree'] }
+        }
+    },
+    explorer: {
+        emoji: '🚀', name: 'The Explorer',
+        combos: {
+            guardian: { title: 'Explorer × Guardian', sub: 'Your best balancer. Explorer\'s ambition + Guardian\'s safety creates a powerful balanced portfolio.', emoji1: '🚀', label1: 'Explorer', emoji2: '🛡️', label2: 'Guardian', score: 72, tips: ['Explorer handles equity portfolio; Guardian owns fixed income and insurance', 'Agree on a maximum equity allocation (e.g. 65%) that Guardian is comfortable with', 'Explorer must consult Guardian before any new investment over ₹50K', 'Regular reviews: Explorer prevents over-conservatism; Guardian prevents over-risk'] },
+            explorer: { title: 'Explorer × Explorer', sub: 'Maximum growth potential but maximum risk. You need an external voice to prevent over-exposure.', emoji1: '🚀', label1: 'Explorer', emoji2: '🚀', label2: 'Explorer', score: 65, tips: ['Mandatory: minimum 30% in debt/gold regardless of market views', 'Advisor plays the Guardian role — someone to say "enough risk"', 'Build emergency fund and term insurance BEFORE any aggressive equity moves', 'Volatility in portfolio will be high — plan emotionally for 30-40% drawdowns'] },
+            planner: { title: 'Explorer × Planner', sub: 'Excellent balance. Explorer generates ideas; Planner filters and structures them. High potential.', emoji1: '🚀', label1: 'Explorer', emoji2: '📋', label2: 'Planner', score: 84, tips: ['Explorer finds opportunities; Planner researches and validates before investing', 'Planner sets the budget and guardrails; Explorer picks assets within them', 'Together you can achieve 15-18% CAGR without reckless risk', 'Risk: Explorer may get impatient with Planner\'s thoroughness; schedule "opportunity weeks"'] },
+            spender: { title: 'Explorer × Spender', sub: 'Fun and energetic — but dangerously few guardrails. External discipline is critical.', emoji1: '🚀', label1: 'Explorer', emoji2: '🛍️', label2: 'Spender', score: 48, tips: ['Automate all investments on salary day — before either can spend', 'Use separate accounts: neither can access joint savings without both agreeing', 'Mandatory quarterly advisor review to prevent lifestyle inflation', 'Build 12-month emergency fund (not 6) to buffer against joint impulsiveness'] }
+        }
+    },
+    planner: {
+        emoji: '📋', name: 'The Planner',
+        combos: {
+            guardian: { title: 'Planner × Guardian', sub: 'Near-perfect. Planner provides direction; Guardian ensures it\'s never reckless. Highly effective.', emoji1: '📋', label1: 'Planner', emoji2: '🛡️', label2: 'Guardian', score: 90, tips: ['Planner leads strategy sessions; Guardian provides the emotional safety checks', 'Excellent at long-term wealth building with minimal conflict', 'Guardian may slow Planner down occasionally — use it as a quality filter', 'Risk: too conservative as a unit; deliberately add a growth goal each year'] },
+            explorer: { title: 'Planner × Explorer', sub: 'High potential combination. Planner structures; Explorer accelerates. Works brilliantly with clear rules.', emoji1: '📋', label1: 'Planner', emoji2: '🚀', label2: 'Explorer', score: 84, tips: ['Planner sets quarterly investment calendar; Explorer finds best instruments', 'Explorer cannot invest in "new ideas" beyond agreed allocation without Planner approval', 'Combine Planner\'s discipline with Explorer\'s market awareness for great results', 'Celebrate wins together — Explorer\'s enthusiasm + Planner\'s rigor = winning team'] },
+            planner: { title: 'Planner × Planner', sub: 'Maximum alignment. Both structured, goal-focused, and rational. Almost zero money conflicts.', emoji1: '📋', label1: 'Planner', emoji2: '📋', label2: 'Planner', score: 92, tips: ['Highest financial compatibility — strong goal alignment and execution', 'Risk: joint over-analysis paralysis; set a "decide by date" for all investments', 'May miss tactical opportunities due to excessive research; trust your advisor', 'Allow each other a small "fun money" allocation to prevent life feeling too regimented'] },
+            spender: { title: 'Planner × Spender', sub: 'Manageable tension. Planner frustrated by Spender\'s spontaneity. Structure + freedom is the solution.', emoji1: '📋', label1: 'Planner', emoji2: '🛍️', label2: 'Spender', score: 62, tips: ['Give Spender a non-negotiable personal budget — no questions asked for that amount', 'Planner automates all joint investments so Spender\'s spending never touches them', 'Frame goals as experiences not numbers — Spender is motivated by "Europe trip" not "SIP amount"', 'Monthly 15-min money check-in (not lecture) keeps Spender engaged and Planner calm'] }
+        }
+    },
+    spender: {
+        emoji: '🛍️', name: 'The Spender',
+        combos: {
+            guardian: { title: 'Spender × Guardian', sub: 'Complementary but tense. Guardian\'s security anchors Spender\'s lifestyle. Balance requires clear structure.', emoji1: '🛍️', label1: 'Spender', emoji2: '🛡️', label2: 'Guardian', score: 55, tips: ['Spender gets a fully guilt-free personal budget; Guardian manages joint savings', 'Automate all investments before Spender\'s salary hits their account', 'Frame financial goals as lifestyle enablers ("this SIP funds our Maldives trip")', 'Guardian should never criticize past Spender purchases — only shape future behaviour'] },
+            explorer: { title: 'Spender × Explorer', sub: 'High energy but needs strong external guardrails. Fun together, financially risky without structure.', emoji1: '🛍️', label1: 'Spender', emoji2: '🚀', label2: 'Explorer', score: 48, tips: ['Full automation is non-negotiable: salary → SIP on Day 1, then spend what\'s left', 'Emergency corpus: 12 months (not 6) to absorb both personalities\' impulses', 'Quarterly advisor review is mandatory — not optional — for this combination', 'Celebrate milestones loudly; both personalities are motivated by celebration'] },
+            planner: { title: 'Spender × Planner', sub: 'Planner can bring Spender along with the right framing. Structure + fun = workable balance.', emoji1: '🛍️', label1: 'Spender', emoji2: '📋', label2: 'Planner', score: 62, tips: ['Planner should frame goals in Spender\'s language: "₹5K/month buys us Bali in 2 years"', 'Give Spender visible, tangible goal tracking — progress bars they can see', 'Spender\'s enthusiasm for near-term goals is an asset; use it to fund short-term goals', 'Planner manages long-term investments; Spender handles near-term goal saving'] },
+            spender: { title: 'Spender × Spender', sub: 'Caution: both live for today. You need maximum external structure and automation.', emoji1: '🛍️', label1: 'Spender', emoji2: '🛍️', label2: 'Spender', score: 40, tips: ['URGENT: automate 40%+ of combined income to investments on salary day', 'Use a separate savings account neither can access without 48-hour notice', 'Monthly advisor check-in with visible net worth tracker', 'Focus on "paying yourself first" — goals must be funded before lifestyle spend'] }
+        }
+    }
+};
+
+let selectedType = 'guardian';
+let partnerType = 'explorer';
+
+function updateCompatibility() {
+    const data = personalityData[selectedType];
+    const combo = data.combos[partnerType];
+    document.getElementById('compatTitle').textContent = combo.title;
+    document.getElementById('compatSub').textContent = combo.sub;
+    document.getElementById('compatEmoji1').textContent = combo.emoji1;
+    document.getElementById('compatLabel1').textContent = combo.label1;
+    document.getElementById('compatEmoji2').textContent = combo.emoji2;
+    document.getElementById('compatLabel2').textContent = combo.label2;
+    document.getElementById('compatScore').textContent = combo.score + '%';
+    document.getElementById('compatBar').style.width = combo.score + '%';
+    const tipsEl = document.getElementById('compatTips');
+    tipsEl.innerHTML = combo.tips.map(t => `<div class="ct-tip"><i class="fas fa-${t.startsWith('URGENT') || t.startsWith('Caution') ? 'exclamation-circle' : t.startsWith('Risk') ? 'exclamation-triangle' : 'check-circle'}"></i> ${t}</div>`).join('');
+}
+
+document.querySelectorAll('.pc-card').forEach(card => {
+    card.addEventListener('click', () => {
+        document.querySelectorAll('.pc-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedType = card.dataset.type;
+        // Partner = opposite of selected for demo
+        const types = ['guardian', 'explorer', 'planner', 'spender'];
+        const idx = types.indexOf(selectedType);
+        partnerType = types[(idx + 1) % 4];
+        updateCompatibility();
+    });
+});
+
+/* ── Floating hearts animation ── */
+function spawnHeart() {
+    const hearts = document.getElementById('hearts');
+    if (!hearts) return;
+    const el = document.createElement('span');
+    el.textContent = Math.random() > .5 ? '❤️' : '💕';
+    el.style.cssText = `position:absolute;left:${Math.random() * 100}%;bottom:${Math.random() * 40}%;font-size:${10 + Math.random() * 16}px;animation:floatHeart ${4 + Math.random() * 4}s linear forwards;`;
+    hearts.appendChild(el);
+    setTimeout(() => el.remove(), 8000);
+}
+const hi = setInterval(spawnHeart, 1200);
+setTimeout(() => clearInterval(hi), 12000); // stop after 10 hearts
