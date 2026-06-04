@@ -394,7 +394,7 @@
                         <div class="as-sub">For shared goals & household</div>
                     </div>
                     <div class="as-card-body">
-                        <div class="as-desc">A single joint account for all shared expenses and goal-based savings.
+                        <div class="as-desc p-3">A single joint account for all shared expenses and goal-based savings.
                             Transparent, equal ownership, and builds financial trust.</div>
                         <ul class="as-list">
                             <li><i class="fas fa-check-circle"></i> Household expenses (rent/EMI, groceries, utilities)
@@ -416,7 +416,7 @@
                         <div class="as-sub">Personal autonomy + growth investing</div>
                     </div>
                     <div class="as-card-body">
-                        <div class="as-desc">Personal financial autonomy for the first partner — for individual goals,
+                        <div class="as-desc p-3">Personal financial autonomy for the first partner — for individual goals,
                             personal treats, and retirement investing without seeking permission.</div>
                         <ul class="as-list">
                             <li><i class="fas fa-check-circle"></i> Individual retirement investments (NPS, PPF, ELSS)
@@ -438,7 +438,7 @@
                         <div class="as-sub">Financial independence + individual goals</div>
                     </div>
                     <div class="as-card-body">
-                        <div class="as-desc">Complete financial independence for the second partner — especially
+                        <div class="as-desc p-3">Complete financial independence for the second partner — especially
                             important in India where women often lack personal financial autonomy.</div>
                         <ul class="as-list">
                             <li><i class="fas fa-check-circle"></i> Individual retirement corpus (Women live longer —
