@@ -556,8 +556,111 @@ function calcPremium() {
     document.getElementById('calcResult').textContent = '₹' + premium.toLocaleString('en-IN');
 }
 
-if( $("#calcSA").length > 0 ) {
-    updateSALabel(); 
-    updateTermLabel(); 
+if ($("#calcSA").length > 0) {
+    updateSALabel();
+    updateTermLabel();
     calcPremium();
+}
+
+/* ── Process hover ── */
+document.querySelectorAll('.wmp-step').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.wmp-step').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+    });
+});
+
+/* ── Asset Allocation Tool ── */
+const profiles = {
+    conservative: {
+        allocs: [
+            { name: 'Equity Funds', pct: 20, color: '#C8102E' },
+            { name: 'Debt / Bonds', pct: 40, color: '#2563eb' },
+            { name: 'Gold / SGBs', pct: 15, color: '#D4A017' },
+            { name: 'Real Estate', pct: 15, color: '#15803d' },
+            { name: 'Alternates', pct: 10, color: '#7c3aed' }
+        ],
+        xirr: '9–12%', risk: 'Low', dd: '~8%'
+    },
+    balanced: {
+        allocs: [
+            { name: 'Equity / PMS', pct: 40, color: '#C8102E' },
+            { name: 'Debt / Bonds', pct: 25, color: '#2563eb' },
+            { name: 'Alternates / AIF', pct: 20, color: '#D4A017' },
+            { name: 'Real Estate', pct: 10, color: '#15803d' },
+            { name: 'Gold / SGBs', pct: 5, color: '#7c3aed' }
+        ],
+        xirr: '14–17%', risk: 'Moderate', dd: '~15%'
+    },
+    growth: {
+        allocs: [
+            { name: 'Equity / PMS', pct: 55, color: '#C8102E' },
+            { name: 'Alternates / AIF', pct: 25, color: '#D4A017' },
+            { name: 'Debt / Bonds', pct: 10, color: '#2563eb' },
+            { name: 'Real Estate', pct: 7, color: '#15803d' },
+            { name: 'Gold', pct: 3, color: '#888' }
+        ],
+        xirr: '16–20%', risk: 'High', dd: '~22%'
+    },
+    aggressive: {
+        allocs: [
+            { name: 'Direct Equity / PMS', pct: 60, color: '#C8102E' },
+            { name: 'AIF / PE', pct: 30, color: '#D4A017' },
+            { name: 'Intl. Equity', pct: 7, color: '#7c3aed' },
+            { name: 'Gold / Cash', pct: 3, color: '#888' }
+        ],
+        xirr: '18–25%', risk: 'Very High', dd: '~35%'
+    }
+};
+
+function fmtAssets(cr) {
+    if (cr >= 100) return '₹' + cr.toFixed(0) + ' Crore';
+    if (cr >= 10) return '₹' + cr.toFixed(0) + ' Crore';
+    if (cr >= 1) return '₹' + cr.toFixed(1) + ' Crore';
+    return '₹' + Math.round(cr * 100) + ' Lakhs';
+}
+
+function calcAlloc() {
+    const assets = +document.getElementById('at-assets').value;
+    const horizon = +document.getElementById('at-horizon').value;
+    const age = +document.getElementById('at-age').value;
+    const risk = document.getElementById('at-risk').value;
+    const income = document.getElementById('at-income').value;
+
+    document.getElementById('lbl-assets').textContent = fmtAssets(assets);
+    document.getElementById('lbl-horizon').textContent = horizon + ' years';
+    document.getElementById('lbl-atage').textContent = age;
+    document.getElementById('lbl-risk').textContent = document.getElementById('at-risk').options[document.getElementById('at-risk').selectedIndex].text.split(' — ')[0];
+    document.getElementById('lbl-income').textContent = income === 'no' ? 'No' : income === 'partial' ? 'Partial' : 'Yes';
+
+    const profile = profiles[risk];
+
+    // Render allocation bars
+    const allocEl = document.getElementById('atAlloc');
+    allocEl.innerHTML = profile.allocs.map(a => `
+    <div class="atra-row">
+      <div class="atra-name"><div class="atra-dot" style="background:${a.color}"></div>${a.name}</div>
+      <div class="atra-bar-bg"><div class="atra-bar" style="width:${a.pct}%;background:${a.color}"></div></div>
+      <div class="atra-pct">${a.pct}%</div>
+    </div>`).join('');
+
+    // Projected corpus at midpoint of XIRR range
+    const xirrs = profile.xirr.split('–');
+    const midXirr = (parseFloat(xirrs[0]) + parseFloat(xirrs[1])) / 2 / 100;
+    const projected = assets * Math.pow(1 + midXirr, horizon);
+    let projStr;
+    if (projected >= 100) projStr = '₹' + projected.toFixed(0) + ' Cr';
+    else if (projected >= 10) projStr = '₹' + projected.toFixed(1) + ' Cr';
+    else projStr = '₹' + projected.toFixed(2) + ' Cr';
+
+    document.getElementById('atr-xirr').textContent = profile.xirr + '%';
+    document.getElementById('atr-corpus').textContent = projStr;
+    document.getElementById('atr-risk').textContent = profile.risk;
+    document.getElementById('atr-dd').textContent = profile.dd;
+}
+
+if( $("#at-assets").length > 0) {
+    ['at-assets', 'at-horizon', 'at-age'].forEach(id => document.getElementById(id).addEventListener('input', calcAlloc));
+    ['at-risk', 'at-income'].forEach(id => document.getElementById(id).addEventListener('change', calcAlloc));
+    calcAlloc();
 }
