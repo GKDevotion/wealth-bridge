@@ -659,8 +659,93 @@ function calcAlloc() {
     document.getElementById('atr-dd').textContent = profile.dd;
 }
 
-if( $("#at-assets").length > 0) {
+if ($("#at-assets").length > 0) {
     ['at-assets', 'at-horizon', 'at-age'].forEach(id => document.getElementById(id).addEventListener('input', calcAlloc));
     ['at-risk', 'at-income'].forEach(id => document.getElementById(id).addEventListener('change', calcAlloc));
     calcAlloc();
 }
+
+// ── Chart bar IntersectionObserver ──
+const chartWrap = document.getElementById('chartWrap');
+const chartBars = chartWrap.querySelectorAll('.cb-fill');
+const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            chartBars.forEach((bar, i) => {
+                setTimeout(() => bar.classList.add('animate'), i * 150);
+            });
+            chartObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
+chartObserver.observe(chartWrap);
+
+// ── Calculator ──
+const savValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20];
+const savLabels = ['₹0', '₹1L', '₹2L', '₹3L', '₹4L', '₹5L', '₹6L', '₹7L', '₹8L', '₹10L', '₹12L', '₹15L', '₹20L'];
+
+function updateSavLabel() {
+    const idx = parseInt(document.getElementById('ecSav').value);
+    document.getElementById('ecSavLabel').textContent = savLabels[idx];
+}
+
+function calcEdu() {
+    const age = parseInt(document.getElementById('ecAge').value);
+    const baseGoal = parseInt(document.getElementById('ecCollege').value); // in lakhs today
+    const savIdx = parseInt(document.getElementById('ecSav').value);
+    const existSav = savValues[savIdx]; // lakhs
+    const r = parseFloat(document.getElementById('ecReturn').value) / 100;
+    const dur = parseInt(document.getElementById('ecDur').value);
+    const eduInfl = 0.08;
+
+    const n = 18 - age; // years to college
+    if (n <= 0) {
+        document.getElementById('ecResult').textContent = '₹—';
+        return;
+    }
+
+    // Total future cost (inflation adjusted)
+    let futureCost = 0;
+    for (let y = 0; y < dur; y++) {
+        futureCost += baseGoal * Math.pow(1 + eduInfl, n + y);
+    }
+
+    // Existing savings grow at return rate
+    const grownSavings = existSav * Math.pow(1 + r, n);
+    const shortfall = Math.max(0, futureCost - grownSavings);
+
+    // SIP formula: shortfall = SIP * [(1+r/12)^(n*12) - 1] / (r/12)
+    const rm = r / 12;
+    const months = n * 12;
+    const sip = shortfall / ((Math.pow(1 + rm, months) - 1) / rm);
+    const totalContrib = sip * months / 100000;
+    const returnsEarned = (shortfall / 100000) - totalContrib;
+
+    document.getElementById('ecResult').textContent = '₹' + Math.ceil(sip).toLocaleString('en-IN');
+    document.getElementById('ecFutureCost').textContent = '₹' + futureCost.toFixed(1) + 'L';
+    document.getElementById('ecContrib').textContent = '₹' + totalContrib.toFixed(1) + 'L';
+    document.getElementById('ecReturns').textContent = '₹' + Math.max(0, returnsEarned).toFixed(1) + 'L';
+}
+
+if ($("#ecAge").length > 0) {
+    updateSavLabel();
+    calcEdu();
+}
+
+// ── Number counter animation for stats bar ──
+const counterChildEls = document.querySelectorAll('.hsb-val');
+const counterChildObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            counterChildObs.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+counterChildEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    el.style.transition = 'all 0.6s ease';
+    counterChildObs.observe(el);
+});
