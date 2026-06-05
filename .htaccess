@@ -6,17 +6,23 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # Service details URL
 #RewriteRule ^service-details/([^/]+)$ service-details.php?slug=$1 [L,QSA]
+
 RewriteRule ^index index.php?slug=$1 [L,QSA]
 
+#Our Service > Planning
 RewriteRule ^retirement-planning retirement-planning.php?slug=$1 [L,QSA]
 RewriteRule ^investment-planning investment-planning.php?slug=$1 [L,QSA]
 RewriteRule ^nri-financial-advisory nri-financial-advisory.php?slug=$1 [L,QSA]
 RewriteRule ^financial-planning-couples financial-planning-couples.php?slug=$1 [L,QSA]
+RewriteRule ^financial-planning-women financial-planning-women.php?slug=$1 [L,QSA]
 RewriteRule ^planning-for-men planning-for-men.php?slug=$1 [L,QSA]
+RewriteRule ^wealth-management wealth-management.php?slug=$1 [L,QSA]
+RewriteRule ^child-education child-education.php?slug=$1 [L,QSA]
+
+#Our Service > Insurance & Investment
+RewriteRule ^life-insurance life-insurance.php?slug=$1 [L,QSA]
 RewriteRule ^health-insurance health-insurance.php?slug=$1 [L,QSA]
 RewriteRule ^tax-efficient-investment tax-efficient-investment.php?slug=$1 [L,QSA]
-RewriteRule ^financial-planning-women financial-planning-women.php?slug=$1 [L,QSA]
-RewriteRule ^wealth-management wealth-management.php?slug=$1 [L,QSA]
 
-RewriteRule ^life-insurance life-insurance.php?slug=$1 [L,QSA]
+#
 RewriteRule ^blog blog.php?slug=$1 [L,QSA]
