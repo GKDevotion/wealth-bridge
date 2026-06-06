@@ -77,7 +77,7 @@
                         <li><a href="health-insurance"><i class="fas fa-hospital"></i> Health Insurance</a></li>
                         <li><a href="tax-efficient-investment"><i class="fas fa-percent"></i> Tax-Efficient Invest.</a></li>
                         <li><a href="real-estate-investment"><i class="fas fa-building"></i> Real Estate Invest.</a></li>
-                        <li><a href="child-wedding-plan"><i class="fas fa-ring"></i> Child Wedding Plan.</a></li>
+                        <li><a href="child-wedding-planning"><i class="fas fa-ring"></i> Child Wedding Plan.</a></li>
                         <li><a href="vacation-planning"><i class="fas fa-plane"></i> Vacation Planning</a></li>
                         <li><a href="asset-management"><i class="fas fa-coins"></i> Asset Management</a></li>
                         <li><a href="business-planning"><i class="fas fa-briefcase"></i> Business Planning</a></li>

@@ -3,6 +3,7 @@
     --red: #ff0000;
     --red-dark: #9B0D23;
     --red-light: #e70c0c;
+    --red-glow: rgba(200, 16, 46, 0.18);
     --black: #0D0D0D;
     --black-2: #1A1A1A;
     --white: #FFFFFF;
@@ -11,6 +12,10 @@
     --amber-lt: #FDD07A;
     --cream: #FDF6EC;
     --cream-dk: #F5ECD9;
+    --teal-light: #14B8A6;
+    --teal-glow: rgba(13, 148, 136, 0.15);
+    --sky: #0EA5E9;
+    --sky-glow: rgba(14, 165, 233, 0.12);
     --teal: #0D8B74;
     --teal-lt: #E6F5F2;
     --gray-50: #F9F9F9;
@@ -30,6 +35,28 @@
     --radius: 4px;
     --radius-lg: 16px;
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #FBF5E6;
+    --gold-deep: #9A7230;
+    --ivory: #FAF7F0;
+    --ivory-2: #F3ECD8;
+    --ivory-3: #E8DFC8;
+    --wine: #6B1E3B;
+    --wine-light: #8D2E52;
+    --wine-pale: #FBF0F4;
+    --red-pale: #FFF0F2;
+    --ink: #1A1208;
+    --ink-2: #2C1F10;
+    --ink-warm: #5C4A32;
+    --ink-faint: #9E8B72;
+    --white: #FFFFFF;
+    --shadow-gold: 0 8px 40px rgba(201, 168, 76, 0.22);
+    --shadow-warm: 0 4px 28px rgba(26, 18, 8, 0.10);
+    --shadow-deep: 0 20px 80px rgba(26, 18, 8, 0.16);
+    --font-ui: 'Poppins', sans-serif;
+            
 }
 
 /* ===== RESET & BASE ===== */

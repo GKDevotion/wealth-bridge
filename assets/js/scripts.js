@@ -665,20 +665,22 @@ if ($("#at-assets").length > 0) {
     calcAlloc();
 }
 
-// ── Chart bar IntersectionObserver ──
-const chartWrap = document.getElementById('chartWrap');
-const chartBars = chartWrap.querySelectorAll('.cb-fill');
-const chartObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            chartBars.forEach((bar, i) => {
-                setTimeout(() => bar.classList.add('animate'), i * 150);
-            });
-            chartObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.3 });
-chartObserver.observe(chartWrap);
+if( $(".cb-fill").length > 0 ) {
+    // ── Chart bar IntersectionObserver ──
+    const chartWrap = document.getElementById('chartWrap');
+    const chartBars = chartWrap.querySelectorAll('.cb-fill');
+    const chartObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                chartBars.forEach((bar, i) => {
+                    setTimeout(() => bar.classList.add('animate'), i * 150);
+                });
+                chartObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    chartObserver.observe(chartWrap);
+}
 
 // ── Calculator ──
 const savValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20];
@@ -751,7 +753,7 @@ counterChildEls.forEach(el => {
 });
 
 (function () {
-  
+
     /* Animated bar fills — all selectors */
     function observeFills(selector) {
         var fills = document.querySelectorAll(selector);
@@ -767,15 +769,15 @@ counterChildEls.forEach(el => {
         fills.forEach(function (f) { obs.observe(f); });
     }
     observeFills('.teiwc-fill');
-    observeFills('.htb-fill'); 
+    observeFills('.htb-fill');
     observeFills('.hiwc-fill');
     observeFills('.hcl-bar');
     /* Counter animation */
     function animateCounter(el) {
-        var raw      = parseFloat(el.dataset.counter);
-        var suffix   = el.dataset.suffix || '';
+        var raw = parseFloat(el.dataset.counter);
+        var suffix = el.dataset.suffix || '';
         var duration = 1800;
-        var start    = null;
+        var start = null;
         function step(ts) {
             if (!start) start = ts;
             var p = Math.min((ts - start) / duration, 1);
@@ -802,3 +804,347 @@ counterChildEls.forEach(el => {
     }
 
 })();
+
+
+/* ── Destination tabs ── */
+document.querySelectorAll('.dt-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const key = tab.dataset.dtab;
+        document.querySelectorAll('.dt-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.dt-panel').forEach(p => p.classList.remove('active'));
+        const t = document.getElementById('dtab-' + key);
+        if (t) { t.classList.add('active'); AOS.refresh() }
+    });
+});
+
+/* ── Process hover ── */
+document.querySelectorAll('.vp-step').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.vp-step').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+    });
+});
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement, isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+
+if( $("#dotsAnim").length > 0 ) {
+    /* ── Floating dots animation ── */
+    const dotsEl = document.getElementById('dotsAnim');
+    const destEmojis = ['✈️', '🌍', '🏖️', '🗺️', '🌏', '🏔️', '🌊', '🎡'];
+    for (let i = 0; i < 8; i++) {
+        const d = document.createElement('div');
+        d.className = 'sh-dot-el';
+        const size = 8 + Math.random() * 14;
+        d.style.cssText = `width:${size}px;height:${size}px;background:rgba(200,16,46,${.06 + Math.random() * .12});left:${5 + Math.random() * 90}%;bottom:${10 + Math.random() * 60}%;animation-duration:${4 + Math.random() * 5}s;animation-delay:${Math.random() * 3}s`;
+        dotsEl.appendChild(d);
+    }
+}
+
+/* ── VACATION CALCULATOR ── */
+function fmtVacation(n) {
+    if (n >= 10000000) return '₹' + (n / 10000000).toFixed(1) + 'Cr';
+    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + 'L';
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+function fmtVacationMo(n) {
+    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + 'L /mo';
+    return '₹' + Math.round(n).toLocaleString('en-IN') + ' /mo';
+}
+
+function calcVacation() {
+    const basePerPerson = +document.getElementById('vc-dest').value;
+    const pax = +document.getElementById('vc-pax').value;
+    const months = +document.getElementById('vc-months').value;
+    const retPA = +document.getElementById('vc-ret').value / 100;
+    const fxPct = +document.getElementById('vc-forex').value / 100;
+
+    document.getElementById('lbl-pax').textContent = pax;
+    document.getElementById('lbl-months').textContent = months;
+    document.getElementById('lbl-ret').textContent = (retPA * 100).toFixed(1);
+    document.getElementById('lbl-forex').textContent = (fxPct * 100).toFixed(0);
+
+    const baseCost = basePerPerson * pax;
+    const fxBuffer = baseCost * fxPct;
+    const totalNeed = baseCost + fxBuffer;
+
+    // SIP needed: FV = total, monthly rate = retPA/12, n = months
+    const rMo = retPA / 12;
+    let sip;
+    if (Math.abs(rMo) < .0001) sip = totalNeed / months;
+    else sip = totalNeed * rMo / (Math.pow(1 + rMo, months) - 1);
+
+    const totalSaved = sip * months;
+    const returnsEarned = totalSaved - totalNeed; // will be negative (returns reduce what we need to save)
+    // Actually: total we put in = sip*months, total value = totalNeed (target), returns = totalNeed - sip*months
+    const returnsGained = totalNeed - sip * months;
+
+    // Update DOM
+    document.getElementById('vc-monthly').innerHTML = '₹<span>' + Math.ceil(sip).toLocaleString('en-IN') + '</span> /mo';
+    document.getElementById('vc-sub').textContent = 'For ' + fmtVacation(totalNeed) + ' trip in ' + months + ' months (' + pax + ' travellers)';
+    document.getElementById('vc-base').textContent = fmtVacation(baseCost);
+    document.getElementById('vc-fx').textContent = '+' + fmtVacation(fxBuffer);
+    document.getElementById('vc-returns').textContent = '-' + fmtVacation(Math.max(0, returnsGained));
+    document.getElementById('vc-total').textContent = fmtVacation(totalNeed);
+
+    // Timeline visual — fill months
+    const timeline = document.getElementById('vc-timeline');
+    timeline.innerHTML = '';
+    const maxShow = Math.min(months, 24);
+    for (let i = 1; i <= maxShow; i++) {
+        const m = document.createElement('div');
+        m.className = 'vr-month';
+        const accumulated = sip * (Math.pow(1 + rMo, i) - 1) / rMo;
+        if (i === maxShow) m.classList.add('target');
+        else if (accumulated >= totalNeed * 0.95) m.classList.add('filled');
+        else if (accumulated / totalNeed > 0.1) m.classList.add('filled');
+        m.textContent = i <= 6 || i % 3 === 0 ? i : '';
+        timeline.appendChild(m);
+    }
+}
+
+if ($("#vc-dest").length > 0) {
+    document.getElementById('vc-dest').addEventListener('change', calcVacation);
+    ['vc-pax', 'vc-months', 'vc-ret', 'vc-forex'].forEach(id => {
+        document.getElementById(id).addEventListener('input', calcVacation);
+    });
+    calcVacation();
+}
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ── HERO ENTRANCE ─────────────────────────────── */
+// Script line reveal
+setTimeout(() => document.getElementById('heroScript').classList.add('show'), 400);
+
+const hl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+hl.from('.hero-crumb', { y: 20, opacity: 0, duration: .6, delay: .5 })
+    .from('.hero-title .line-inner', { y: '110%', duration: 1, stagger: .14 }, '-=.4')
+    .from('.hero-rule', { scaleX: 0, duration: .8, ease: 'power2.inOut' }, '-=.5')
+    .from('.hero-desc', { y: 28, opacity: 0, duration: .7 }, '-=.5')
+    .from('.hero-cta', { y: 24, opacity: 0, duration: .6 }, '-=.55')
+    .from('.hero-trust-item', { y: 20, opacity: 0, stagger: .1, duration: .5 }, '-=.5')
+    .from('.invite-card', { y: 60, opacity: 0, duration: 1.1, ease: 'back.out(1.3)' }, '-=1')
+    .from('.corner', { scale: .5, opacity: 0, stagger: .12, duration: .6, ease: 'back.out(2)' }, '-=1.2');
+
+/* Fund bar fill on load */
+setTimeout(() => {
+    document.getElementById('fundBarFill').style.width = '29%';
+}, 1200);
+
+/* ── SCROLL TRIGGERS ───────────────────────────── */
+gsap.utils.toArray('.anim-up').forEach(el => {
+    const d = parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0;
+    gsap.from(el, {
+        y: 55, opacity: 0, duration: .9, delay: d, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+    });
+});
+gsap.utils.toArray('.anim-left').forEach(el => {
+    gsap.from(el, {
+        x: -60, opacity: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+    });
+});
+gsap.utils.toArray('.anim-right').forEach(el => {
+    const d = parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0;
+    gsap.from(el, {
+        x: 60, opacity: 0, duration: 1, delay: d, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+    });
+});
+gsap.utils.toArray('.anim-scale').forEach((el, i) => {
+    const d = parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0;
+    gsap.from(el, {
+        scale: .88, opacity: 0, duration: .85, delay: d, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+    });
+});
+gsap.utils.toArray('.anim-fade').forEach(el => {
+    gsap.from(el, {
+        opacity: 0, duration: .8,
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+    });
+});
+
+/* ── WHY POINTS STAGGER ────────────────────────── */
+ScrollTrigger.create({
+    trigger: '.why-points', start: 'top 80%', once: true,
+    onEnter: () => gsap.from('.why-pt', { x: 40, opacity: 0, duration: .7, stagger: .1, ease: 'power3.out' })
+});
+
+/* ── PLAN CARD 3D HOVER ────────────────────────── */
+document.querySelectorAll('.plan-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        gsap.to(card, { rotationY: x * 7, rotationX: -y * 5, duration: .35, ease: 'power2.out', transformPerspective: 900 });
+    });
+    card.addEventListener('mouseleave', () => {
+        gsap.to(card, { rotationY: 0, rotationX: 0, duration: .55, ease: 'elastic.out(1,.4)' });
+    });
+});
+
+/* ── TL CARDS STAGGER ──────────────────────────── */
+ScrollTrigger.create({
+    trigger: '.tl-grid', start: 'top 82%', once: true,
+    onEnter: () => gsap.from('.tl-card', { y: 50, opacity: 0, duration: .7, stagger: .1, ease: 'power3.out' })
+});
+
+/* ── COST CARDS ────────────────────────────────── */
+ScrollTrigger.create({
+    trigger: '.why-cost-cards', start: 'top 85%', once: true,
+    onEnter: () => gsap.from('.wcost-card', { scale: .85, opacity: 0, duration: .6, stagger: .1, ease: 'back.out(2)' })
+});
+
+/* ── TESTI CARDS ───────────────────────────────── */
+ScrollTrigger.create({
+    trigger: '.testi-grid', start: 'top 82%', once: true,
+    onEnter: () => gsap.from('.testi-card', { y: 50, opacity: 0, duration: .7, stagger: .12, ease: 'power3.out' })
+});
+
+/* ── MAGNETIC BUTTONS ──────────────────────────── */
+document.querySelectorAll('.btn-gold,.btn-cta-gold,.btn-plan-card.gold').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        gsap.to(btn, { x: (e.clientX - r.left - r.width / 2) * .2, y: (e.clientY - r.top - r.height / 2) * .2, duration: .3, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: .6, ease: 'elastic.out(1,.4)' });
+    });
+});
+
+/* ── MARQUEE PAUSE ─────────────────────────────── */
+const mt = document.getElementById('marqTrack');
+mt.addEventListener('mouseenter', () => mt.style.animationPlayState = 'paused');
+mt.addEventListener('mouseleave', () => mt.style.animationPlayState = 'running');
+
+/* ── DONUT CHART ───────────────────────────────── */
+const donutData = [
+    { label: 'Venue & Decor', pct: 30, color: '#C9A84C' },
+    { label: 'Catering & Food', pct: 25, color: '#9A7230' },
+    { label: 'Photography/Video', pct: 10, color: '#6B1E3B' },
+    { label: 'Bridal & Outfits', pct: 14, color: '#E8C97A' },
+    { label: 'Music & Entertainment', pct: 7, color: '#8D2E52' },
+    { label: 'Honeymoon', pct: 8, color: '#C8102E' },
+    { label: 'Misc & Gifts', pct: 6, color: '#D4A853' },
+];
+const cx = 100, cy = 100, R = 70, strokeW = 28;
+function buildDonut(totalL) {
+    const svg = document.getElementById('donutSvg');
+    svg.innerHTML = '';
+    const circ = 2 * Math.PI * R;
+    let offset = 0;
+    const legend = document.getElementById('donutLegend');
+    legend.innerHTML = '';
+    donutData.forEach(d => {
+        const dash = circ * d.pct / 100;
+        const gap = circ - dash;
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', cx); circle.setAttribute('cy', cy); circle.setAttribute('r', R);
+        circle.setAttribute('fill', 'none');
+        circle.setAttribute('stroke', d.color);
+        circle.setAttribute('stroke-width', strokeW);
+        circle.setAttribute('stroke-dasharray', `${dash} ${gap}`);
+        circle.setAttribute('stroke-dashoffset', -offset);
+        circle.setAttribute('stroke-linecap', 'round');
+        circle.style.transition = 'stroke-dasharray .6s ease';
+        svg.appendChild(circle);
+        offset += dash;
+        const amtL = Math.round(totalL * d.pct / 100);
+        const li = document.createElement('div');
+        li.className = 'dl-item';
+        li.innerHTML = `<div class="dl-dot" style="background:${d.color}"></div><span class="dl-name">${d.label}</span><span class="dl-pct">${d.pct}%</span><span class="dl-amt">₹${amtL}L</span>`;
+        legend.appendChild(li);
+    });
+    document.getElementById('donutCenter').textContent = '₹' + totalL + 'L';
+    document.getElementById('budgetTotalLabel').textContent = '₹' + totalL + ' Lakh';
+}
+function updateBudget() {
+    buildDonut(+document.getElementById('budgetRange').value);
+}
+// Init donut on scroll
+ScrollTrigger.create({
+    trigger: '.budget-sec', start: 'top 75%', once: true,
+    onEnter: () => { buildDonut(50); gsap.from('#donutSvg', { rotationX: -30, opacity: 0, duration: 1, ease: 'power3.out' }); }
+});
+
+/* ── WEDDING CALCULATOR ────────────────────────── */
+function fmtC(n) { return n >= 10000000 ? '₹' + (n / 10000000).toFixed(2) + 'Cr' : n >= 100000 ? '₹' + (n / 100000).toFixed(1) + 'L' : '₹' + Math.round(n).toLocaleString('en-IN'); }
+function calcWedding() {
+    const age = +document.getElementById('wc_age').value;
+    const wed = +document.getElementById('wc_wedAge').value;
+    const sip = +document.getElementById('wc_sip').value;
+    const ret = +document.getElementById('wc_ret').value / 100 / 12;
+    const inflR = 0.095;
+    const yrs = Math.max(1, wed - age);
+    const n = yrs * 12;
+    document.getElementById('wcAge').textContent = age + ' years';
+    document.getElementById('wcWedAge').textContent = wed + ' years';
+    document.getElementById('wcSip').textContent = '₹' + sip.toLocaleString('en-IN');
+    document.getElementById('wcReturn').textContent = document.getElementById('wc_ret').value + '%';
+    const fv = sip * ((Math.pow(1 + ret, n) - 1) / ret) * (1 + ret);
+    const inv = sip * n;
+    const inflN = 3000000 * Math.pow(1 + inflR, yrs);
+    document.getElementById('wc_total').textContent = fmtC(fv);
+    document.getElementById('wc_invested').textContent = fmtC(inv);
+    document.getElementById('wc_gain').textContent = fmtC(fv - inv);
+    document.getElementById('wc_years').textContent = yrs + ' years';
+    document.getElementById('wc_infl').textContent = fmtC(inflN);
+    // Update range fill
+    ['wc_age', 'wc_wedAge', 'wc_sip', 'wc_ret'].forEach(id => {
+        const el = document.getElementById(id);
+        const pct = ((el.value - el.min) / (el.max - el.min)) * 100;
+        el.style.setProperty('--fill', pct + '%');
+    });
+}
+calcWedding();
+
+/* ── FAQ ───────────────────────────────────────── */
+function toggleFaq(btn) {
+    const ans = btn.nextElementSibling, open = btn.classList.contains('open');
+    document.querySelectorAll('.faq-q.open').forEach(q => { q.classList.remove('open'); q.nextElementSibling.classList.remove('open'); });
+    if (!open) {
+        btn.classList.add('open'); ans.classList.add('open');
+        gsap.from(ans.querySelector('p'), { y: 10, opacity: 0, duration: .4, ease: 'power2.out' });
+    }
+}
+
+/* ── FORM SUBMIT ───────────────────────────────── */
+function submitForm(btn) {
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    setTimeout(() => {
+        btn.textContent = '💍 Your Plan is Ready! Advisor Will Call You';
+        btn.style.background = 'linear-gradient(135deg,#22c55e,#166534)';
+        gsap.from(btn, { scale: .92, duration: .5, ease: 'back.out(2)' });
+    }, 1400);
+}
+function submitCalc(btn) {
+    btn.textContent = 'Preparing Your Fund Plan...'; btn.disabled = true;
+    setTimeout(() => {
+        btn.textContent = '✦ Plan Sent to Your WhatsApp';
+        gsap.from(btn, { scale: .9, duration: .4, ease: 'back.out(2)' });
+    }, 1400);
+}
+
+/* ── INVITE CARD MILESTONE LOOP ────────────────── */
+const milestones = document.querySelectorAll('.inv-milestone');
+let mIdx = 1;
+setInterval(() => {
+    milestones.forEach((m, i) => { if (i <= mIdx) m.classList.add('done'); else m.classList.remove('done'); });
+    const pcts = [0, 29, 43, 100];
+    document.getElementById('fundBarFill').style.width = (pcts[Math.min(mIdx, 3)]) + '%';
+    const amounts = ['₹0L saved', '₹5L saved', '₹13L saved', '₹57L saved'];
+    document.getElementById('fundPct').textContent = amounts[Math.min(mIdx, 3)];
+    mIdx = (mIdx + 1) % (milestones.length + 1);
+}, 2200);
+
+/* ── PAGE FADE IN ──────────────────────────────── */
+gsap.from('body', { opacity: 0, duration: .5 });

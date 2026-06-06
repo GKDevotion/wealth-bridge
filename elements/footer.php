@@ -41,6 +41,8 @@
               <li><a href="retirement-planning">Retirement Planning</a></li>
               <li><a href="nri-financial-advisory">NRI Financial Advisory</a></li>
               <li><a href="financial-planning-couples">Planning for Couples</a></li>
+              <li><a href="financial-planning-women">Planning for Women</a></li>
+              <li><a href="planning-for-men">Planning for Men</a></li>
               <li><a href="wealth-management">Wealth Management</a></li>
               <li><a href="life-insurance">Life Insurance</a></li>
               <li><a href="tax-planning">Tax Planning</a></li>
@@ -112,6 +114,9 @@
 
   <!-- ===== AOS + JS ===== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <script src="assets/js/scripts.js"></script>
 </body>
