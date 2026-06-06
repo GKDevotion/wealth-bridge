@@ -665,7 +665,7 @@ if ($("#at-assets").length > 0) {
     calcAlloc();
 }
 
-if( $(".cb-fill").length > 0 ) {
+if ($(".cb-fill").length > 0) {
     // ── Chart bar IntersectionObserver ──
     const chartWrap = document.getElementById('chartWrap');
     const chartBars = chartWrap.querySelectorAll('.cb-fill');
@@ -838,7 +838,7 @@ document.querySelectorAll('.faq-q').forEach(q => {
     });
 });
 
-if( $("#dotsAnim").length > 0 ) {
+if ($("#dotsAnim").length > 0) {
     /* ── Floating dots animation ── */
     const dotsEl = document.getElementById('dotsAnim');
     const destEmojis = ['✈️', '🌍', '🏖️', '🗺️', '🌏', '🏔️', '🌊', '🎡'];
@@ -1151,3 +1151,115 @@ setInterval(() => {
 
 /* ── PAGE FADE IN ──────────────────────────────── */
 gsap.from('body', { opacity: 0, duration: .5 });
+
+/* Wedding cost tabs */
+document.querySelectorAll('.wc-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        const key = tab.dataset.wctab;
+        document.querySelectorAll('.wc-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.wc-panel').forEach(p => p.classList.remove('active'));
+        const t = document.getElementById('wctab-' + key);
+        if (t) { t.classList.add('active'); AOS.refresh() }
+    });
+});
+
+/* Process hover */
+document.querySelectorAll('.wpp-step').forEach(s => {
+    s.addEventListener('mouseenter', () => {
+        document.querySelectorAll('.wpp-step').forEach(x => x.classList.remove('active'));
+        s.classList.add('active');
+    });
+});
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+        const item = q.parentElement, isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+    });
+});
+
+/* Floating petals */
+const petalsEl = document.getElementById('petalsEl');
+['🌸', '🌺', '💐', '✿', '❀', '🏵️'].forEach((p, i) => {
+    const el = document.createElement('span');
+    el.className = 'petal';
+    el.textContent = p;
+    el.style.cssText = `left:${5 + Math.random() * 90}%;animation-duration:${6 + Math.random() * 6}s;animation-delay:${Math.random() * 4}s`;
+    petalsEl.appendChild(el);
+});
+
+/* WEDDING FUND CALCULATOR */
+function fmtChildWedding(n) {
+    if (n >= 10000000) return '₹' + (n / 10000000).toFixed(2) + ' Cr';
+    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + ' L';
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+function fmtChildWeddingMo(n) {
+    if (n >= 100000) return '₹' + (n / 100000).toFixed(1) + 'L /mo';
+    return '₹' + Math.round(n).toLocaleString('en-IN') + ' /mo';
+}
+
+function calcWedding() {
+    const childAge = +document.getElementById('wf-child-age').value;
+    const wedAge = +document.getElementById('wf-wed-age').value;
+    const todayBudget = +document.getElementById('wf-budget').value;
+    const inf = +document.getElementById('wf-inf').value / 100;
+    const roi = +document.getElementById('wf-roi').value / 100;
+    const goldPct = +document.getElementById('wf-gold').value / 100;
+
+    document.getElementById('lbl-child-age').textContent = childAge;
+    document.getElementById('lbl-wed-age').textContent = wedAge;
+    document.getElementById('lbl-budget').textContent = '₹' + todayBudget.toLocaleString('en-IN');
+    document.getElementById('lbl-inf').textContent = (inf * 100).toFixed(1);
+    document.getElementById('lbl-roi').textContent = (roi * 100).toFixed(1);
+    document.getElementById('lbl-gold').textContent = (goldPct * 100).toFixed(0);
+
+    const years = Math.max(wedAge - childAge, 1);
+    // Inflation-adjusted future cost
+    const futureCost = todayBudget * Math.pow(1 + inf, years);
+
+    // Monthly SIP (FV=futureCost, r=monthly roi, n=months)
+    const rMo = roi / 12;
+    const nMo = years * 12;
+    let totalSip;
+    if (Math.abs(rMo) < .0001) totalSip = futureCost / nMo;
+    else totalSip = futureCost * rMo / (Math.pow(1 + rMo, nMo) - 1);
+
+    const equitySip = totalSip * (1 - goldPct);
+    const goldSip = totalSip * goldPct;
+    const totalInvested = totalSip * nMo;
+    const returnsEarned = futureCost - totalInvested;
+
+    // Delay impact: if started 5 years later
+    const delayYears = years - 5;
+    let sipIfDelayed;
+    if (delayYears > 0) {
+        const nMoDelay = delayYears * 12;
+        if (Math.abs(rMo) < .0001) sipIfDelayed = futureCost / nMoDelay;
+        else sipIfDelayed = futureCost * rMo / (Math.pow(1 + rMo, nMoDelay) - 1);
+        const delayPct = Math.round((sipIfDelayed / totalSip - 1) * 100);
+        document.getElementById('wf-delay-impact').textContent = '~' + delayPct + '%';
+    } else {
+        document.getElementById('wf-delay-impact').textContent = 'N/A (already close to wedding)';
+    }
+
+    // Update DOM
+    document.getElementById('wf-monthly').innerHTML = '₹<span>' + Math.ceil(totalSip).toLocaleString('en-IN') + '</span> /mo';
+    document.getElementById('wf-sub').textContent = 'To fund ' + fmtChildWedding(futureCost) + ' wedding in ' + years + ' years (child age ' + childAge + ' → ' + wedAge + ')';
+    document.getElementById('wf-future-cost').innerHTML = fmtChildWedding(futureCost).replace('₹', '₹<span>') + ' </span>';
+    document.getElementById('wf-future-cost').innerHTML = '<span>' + fmtChildWedding(futureCost) + '</span>';
+    document.getElementById('wf-years').innerHTML = years + ' <span>Yrs</span>';
+    document.getElementById('wf-equity-sip').textContent = fmtChildWeddingMo(equitySip);
+    document.getElementById('wf-gold-sip').textContent = fmtChildWeddingMo(goldSip);
+    document.getElementById('wf-returns').textContent = fmtChildWedding(Math.max(0, returnsEarned)) + ' growth on investment';
+}
+
+if( $("#wf-child-age").length > 0) {
+    ['wf-child-age', 'wf-wed-age', 'wf-budget', 'wf-inf', 'wf-roi', 'wf-gold'].forEach(id => {
+        document.getElementById(id).addEventListener('input', calcWedding);
+    });
+    calcWedding();
+}
