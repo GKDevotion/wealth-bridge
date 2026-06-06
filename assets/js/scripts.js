@@ -770,6 +770,9 @@ counterChildEls.forEach(el => {
     observeFills('.htb-fill'); 
     observeFills('.hiwc-fill');
     observeFills('.hcl-bar');
+    observeFills('.reiwc-fill');
+    observeFills('.risk-meter-fill');
+
     /* Counter animation */
     function animateCounter(el) {
         var raw      = parseFloat(el.dataset.counter);
