@@ -23,14 +23,10 @@ RewriteRule ^child-education child-education.php?slug=$1 [L,QSA]
 RewriteRule ^life-insurance life-insurance.php?slug=$1 [L,QSA]
 RewriteRule ^health-insurance health-insurance.php?slug=$1 [L,QSA]
 RewriteRule ^tax-efficient-investment tax-efficient-investment.php?slug=$1 [L,QSA]
-<<<<<<< HEAD
 RewriteRule ^vacation-planning vacation-planning.php?slug=$1 [L,QSA]
 RewriteRule ^child-wedding-planning child-wedding-planning.php?slug=$1 [L,QSA]
-=======
 RewriteRule ^real-estate-investment real-estate-investment.php?slug=$1 [L,QSA]
-RewriteRule ^child-wedding-plan child-wedding-plan.php?slug=$1 [L,QSA]
 RewriteRule ^business-planning business-planning.php?slug=$1 [L,QSA]
->>>>>>> 3b835aeccf84566fe3028a0a6d14afdc68a53651
 
 #
 RewriteRule ^blog blog.php?slug=$1 [L,QSA]
