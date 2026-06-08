@@ -22,17 +22,7 @@
         <!-- LOGO -->
         <a href="index" class="logo">
             <div class="logo-icon">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 17L9 11L13 15L21 7M21 7V12M21 7H16"/>
-                <path d="M3 21H21" stroke-width="1.5" fill="none" stroke="white" stroke-linecap="round"/>
-                <path d="M3 17L9 11L13 15L21 7" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                <polyline points="21,7 21,12" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                <polyline points="16,7 21,7" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <div>
-                <div class="logo-text">Wealth<span>Bridge</span></div>
-                <div class="logo-sub">Financial Advisory</div>
+                <img src="<?php echo UrlHelper::asset('img/wealth-bridge-black-logo.png'); ?>" alt="WealthBridge">
             </div>
         </a>
 
