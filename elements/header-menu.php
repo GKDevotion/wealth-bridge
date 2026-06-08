@@ -22,7 +22,7 @@
         <!-- LOGO -->
         <a href="index" class="logo">
             <div class="logo-icon">
-                <img src="<?php echo UrlHelper::asset('img/wealth-bridge-black-logo.png'); ?>" alt="WealthBridge">
+                <img src="<?php echo UrlHelper::asset('img/wealth-bridge-black-logo.png?v=0.001'); ?>" alt="WealthBridge">
             </div>
         </a>
 
