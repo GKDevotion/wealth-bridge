@@ -33,12 +33,12 @@
                 <a class="nav-link" href="#">Who We Are <i class="fas fa-chevron-down"></i></a>
                 <div class="mega-menu single" style="min-width:210px">
                 <ul>
-                    <li><a href="#"><i class="fas fa-landmark"></i> Our History</a></li>
-                    <li><a href="#"><i class="fas fa-users"></i> Who We Serve</a></li>
-                    <li><a href="#"><i class="fas fa-user-tie"></i> Leadership Team</a></li>
-                    <li><a href="#"><i class="fas fa-star"></i> Client Testimonials</a></li>
-                    <li><a href="#"><i class="fas fa-lightbulb"></i> Our Approach</a></li>
-                    <li><a href="#"><i class="fas fa-eye"></i> Vision & Mission</a></li>
+                    <li><a href="our-history"><i class="fas fa-landmark"></i> Our History</a></li>
+                    <li><a href="who-we-serve"><i class="fas fa-users"></i> Who We Serve</a></li>
+                    <li><a href="leadership-team"><i class="fas fa-user-tie"></i> Leadership Team</a></li>
+                    <li><a href="client-testimonials"><i class="fas fa-star"></i> Client Testimonials</a></li>
+                    <li><a href="our-approach"><i class="fas fa-lightbulb"></i> Our Approach</a></li>
+                    <li><a href="vision-mission"><i class="fas fa-eye"></i> Vision & Mission</a></li>
                 </ul>
                 </div>
             </li>
