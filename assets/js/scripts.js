@@ -774,6 +774,9 @@ counterChildEls.forEach(el => {
     observeFills('.hcl-bar');
     observeFills('.reiwc-fill');
     observeFills('.risk-meter-fill');
+    observeFills('.amwc-fill');
+    observeFills('.hperf-bar');
+    observeFills('.alloc-ring');
 
     /* Counter animation */
     function animateCounter(el) {

@@ -27,6 +27,11 @@ RewriteRule ^vacation-planning vacation-planning.php?slug=$1 [L,QSA]
 RewriteRule ^child-wedding-planning child-wedding-planning.php?slug=$1 [L,QSA]
 RewriteRule ^real-estate-investment real-estate-investment.php?slug=$1 [L,QSA]
 RewriteRule ^business-planning business-planning.php?slug=$1 [L,QSA]
+RewriteRule ^asset-management asset-management.php?slug=$1 [L,QSA]
+
+#Our Service > Insights
+RewriteRule ^faqs faqs.php?slug=$1 [L,QSA]
+RewriteRule ^events-webinars events-webinars.php?slug=$1 [L,QSA]
 
 #
 RewriteRule ^blog blog.php?slug=$1 [L,QSA]
