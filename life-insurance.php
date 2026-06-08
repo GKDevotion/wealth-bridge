@@ -3,6 +3,17 @@
 <!-- Custom CSS -->
 <link href="<?php echo UrlHelper::asset('css/life-insurance.css'); ?>" rel="stylesheet">
 
+    <!-- ===================== BREADCRUMB ===================== -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="wealth-bridge.html"><i class="fas fa-home"></i> Home</a>
+                <span>›</span><a href="#">Our Services</a>
+                <span>›</span><span class="current">Life Insurance</span>
+            </div>
+        </div>
+    </div>
+
     <!-- ══════════════════════════════
      HERO
     ══════════════════════════════ -->
