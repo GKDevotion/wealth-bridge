@@ -31,6 +31,7 @@ RewriteRule ^asset-management asset-management.php?slug=$1 [L,QSA]
 
 #Our Service > Insights
 RewriteRule ^faqs faqs.php?slug=$1 [L,QSA]
+RewriteRule ^events-webinars events-webinars.php?slug=$1 [L,QSA]
 
 #
 RewriteRule ^blog blog.php?slug=$1 [L,QSA]
