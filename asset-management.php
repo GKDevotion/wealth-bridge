@@ -1124,4 +1124,22 @@
     </div>
 </section>
 
+
+<!-- Page JS -->
+<script>
+(function () {
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-q').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var item   = btn.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+            if (!isOpen) item.classList.add('open');
+        });
+    });
+ 
+})();
+</script>
+
 <?php include_once ('elements/footer.php'); ?>
