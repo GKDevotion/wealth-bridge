@@ -5,13 +5,9 @@
         <div class="footer-grid">
           <div class="footer-brand">
             <div class="footer-logo">
-              <div class="logo-icon"><svg viewBox="0 0 24 24">
-                  <path d="M3 17L9 11L13 15L21 7" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                  <polyline points="21,7 21,12" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" />
-                  <polyline points="16,7 21,7" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" />
-                </svg></div>
-              <div class="logo-text" style="color:white">Wealth<span>Bridge</span></div>
+              <div class="logo-icon">
+                <img src="<?php echo UrlHelper::asset('img/wealth-bridge-white-logo.png?v=0.001'); ?>" alt="WealthBridge">
+              </div>
             </div>
             <p class="footer-desc">Your trusted SEBI-registered financial advisory partner. Building wealth, securing
               futures, bridging dreams — since 2006.</p>
