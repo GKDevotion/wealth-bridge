@@ -4,17 +4,18 @@
     <link href="<?php echo UrlHelper::asset('css/our-approach.css'); ?>" rel="stylesheet">
 
     <!-- BREADCRUMB -->
-<div class="bc-bar">
-  <div class="container">
-    <div class="breadcrumb">
-      <a href="index"><i class="fas fa-home"></i> Home</a>
-      <span>›</span>
-      <a href="who-we-serve">Who We Serve</a>
-      <span>›</span>
-      <span class="cur">Our Approach</span>
+<div class="breadcrumb-bar">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index"><i class="fas fa-home"></i> Home</a>
+            <span>›</span>
+            <a href="#">Who We Are</a>
+            <span>›</span>
+            <span class="current">Our Approach</span>
+        </div>
     </div>
-  </div>
 </div>
+
 
 <!-- ═══════════════════════════════════
      HERO
