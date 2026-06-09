@@ -35,6 +35,7 @@ RewriteRule ^faqs faqs.php?slug=$1 [L,QSA]
 # > Who We Are
 RewriteRule ^our-history our-history.php?slug=$1 [L,QSA]
 RewriteRule ^our-approach our-approach.php?slug=$1 [L,QSA]
+RewriteRule ^market-update market-update.php?slug=$1 [L,QSA]
 
 #
 RewriteRule ^blog blog.php?slug=$1 [L,QSA]

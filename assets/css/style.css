@@ -238,7 +238,7 @@ button {
     transform: translateY(-2px);
 }
 .btn:hover{
-    color: var(--white);
+    color: var(--red);
 }
 .btn-sm {
     padding: 10px 22px;
@@ -806,6 +806,7 @@ button {
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 0px;
     flex-wrap: wrap
 }
 
