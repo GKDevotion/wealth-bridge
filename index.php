@@ -1,7 +1,7 @@
 <?php include_once ('elements/header.php'); ?>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="home">
+<section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
     <div class="container">
@@ -155,7 +155,7 @@
 </div>
 
 <!-- ============ SERVICES ============ -->
-<section class="section services" id="services">
+<section class="section services">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
             <span class="section-label">What We Offer</span>
@@ -240,7 +240,7 @@
 </section>
 
 <!-- ============ WHY CHOOSE US ============ -->
-<section class="section why-us" id="about">
+<section class="section why-us">
     <div class="container">
         <div class="why-grid">
             <div class="why-visual" data-aos="fade-right">
@@ -350,7 +350,7 @@
 </section>
 
 <!-- ============ CALCULATORS ============ -->
-<section class="section calculators" id="resources">
+<section class="section calculators">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
             <span class="section-label">Financial Tools</span>
@@ -417,7 +417,7 @@
 </section>
 
 <!-- ============ TESTIMONIALS ============ -->
-<section class="section testimonials" id="testimonials">
+<section class="section testimonials">
     <div class="container">
         <div class="section-header center" data-aos="fade-up">
             <span class="section-label">Client Testimonials</span>
@@ -496,7 +496,7 @@
 </section>
 
 <!-- ============ INSIGHTS ============ -->
-<section class="section insights" id="insights">
+<section class="section insights">
     <div class="container">
         <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px" data-aos="fade-up">
             <div>
@@ -556,7 +556,7 @@
 </section>
 
 <!-- ============ SEBI DISCLOSURE ============ -->
-<div class="sebi-band" id="sebi">
+<div class="sebi-band">
   <div class="container">
     <div class="sebi-content" data-aos="fade-right">
       <div class="sebi-icon"><i class="fas fa-shield-alt"></i></div>
@@ -574,7 +574,7 @@
 </div>
 
 <!-- ============ IMPOSTER WARNING ============ -->
-<div class="imposter" id="imposter">
+<div class="imposter">
   <div class="container">
     <div class="imposter-icon" data-aos="zoom-in">⚠️</div>
     <div class="imposter-content" data-aos="fade-left">
@@ -588,7 +588,7 @@
 </div>
 
 <!-- ============ PRICING ============ -->
-<section class="section pricing" id="pricing">
+<section class="section pricing">
   <div class="container">
     <div class="section-header center" data-aos="fade-up">
       <span class="section-label">Transparent Pricing</span>
@@ -674,7 +674,7 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="section contact" id="contact">
+<section class="section contact">
   <div class="container">
     <div class="section-header" data-aos="fade-up">
       <span class="section-label">Get In Touch</span>
@@ -769,6 +769,7 @@
     </div>
   </div>
 </section>
+
 
 <?php
 include_once ('elements/footer.php');

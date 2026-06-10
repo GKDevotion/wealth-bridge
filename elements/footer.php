@@ -106,11 +106,124 @@
     <i class="fas fa-arrow-up"></i>
   </button>
 
+  <script>
+      document.getElementById('sebiNavLink').addEventListener('click', function(e) {
+          e.preventDefault();
+
+          Swal.fire({
+            html: `
+              <div style="display:flex; align-items:flex-start; gap:16px; text-align:left; padding:8px 0;">
+                <div style="font-size:40px; color:var(--red); flex-shrink:0;">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div>
+                  <h3 style="margin:0 0 8px; font-size:18px; color:var(--red);">
+                    SEBI Registered Investment Advisor
+                  </h3>
+                  <p style="margin:0 0 16px; font-size:14px; color:#555; line-height:1.6;">
+                    Wealth Bridge Financial Advisory is registered with the Securities and Exchange Board of India (SEBI) as an Investment Adviser under the SEBI (Investment Advisers) Regulations, 2013.
+                  </p>
+                  <div style="background:#f0f4f8; border-radius:8px; padding:12px 16px; display:inline-block;">
+                    <div style="font-size:11px; color:#888; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">
+                      Registration Number
+                    </div>
+                    <div style="font-size:20px; font-weight:700; color:var(--red); letter-spacing:2px;">
+                      INA000XXXXXX
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `,
+            showConfirmButton: true,
+            confirmButtonText: 'View Certificate',
+            confirmButtonColor: 'var(--red)',
+            showCancelButton: true,
+            cancelButtonText: 'Close',
+            width: 520,
+            customClass: {
+              popup: 'sebi-popup'
+            }
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Replace '#' with your actual certificate URL
+              window.open('#', '_blank');
+            }
+          });
+      });
+  </script>
+
+  <script>
+    document.getElementById('imposterNavLink').addEventListener('click', function(e) {
+        e.preventDefault();
+
+        Swal.fire({
+          html: `
+            <div style="text-align:left; padding:4px 0;">
+
+              <!-- Header -->
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+                <div style="font-size:36px; line-height:1;">⚠️</div>
+                <h3 style="margin:0; font-size:20px; color:var(--red);">Beware of Imposters!</h3>
+              </div>
+
+              <!-- Warning box -->
+              <div style="background:#fffbeb; border-left:4px solid var(--red); border-radius:6px; padding:14px 16px; margin-bottom:16px; font-size:14px; color:#555; line-height:1.7;">
+                We have noticed fraudulent entities falsely claiming to represent
+                <strong style="color:#1a1a1a;">Wealth Bridge Financial Advisory</strong>.
+                These imposters may contact you via <strong style="color:#1a1a1a;">WhatsApp, Telegram, or calls</strong>
+                promising guaranteed returns.
+              </div>
+
+              <!-- Key rule -->
+              <div style="background:#fef2f2; border-left:4px solid var(--red); border-radius:6px; padding:12px 16px; margin-bottom:16px; font-size:14px; color:var(--red); font-weight:600;">
+                🚫 Wealth Bridge never guarantees returns or asks for money via personal accounts.
+              </div>
+
+              <!-- Channels -->
+              <p style="font-size:13px; color:#777; margin:0 0 12px;">
+                Always verify through our <strong style="color:#1a1a1a;">official channels only</strong> and report suspicious activity immediately.
+              </p>
+
+              <!-- Fraud contact methods -->
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:4px;">
+                <span style="background:#fff7ed; color:var(--red); font-size:12px; padding:4px 10px; border-radius:20px; border:1px solid #fed7aa;">
+                  <i class="fab fa-whatsapp"></i> WhatsApp Fraud
+                </span>
+                <span style="background:#fff7ed; color:var(--red); font-size:12px; padding:4px 10px; border-radius:20px; border:1px solid #fed7aa;">
+                  <i class="fab fa-telegram"></i> Telegram Fraud
+                </span>
+                <span style="background:#fff7ed; color:var(--red); font-size:12px; padding:4px 10px; border-radius:20px; border:1px solid #fed7aa;">
+                  <i class="fas fa-phone"></i> Call Fraud
+                </span>
+              </div>
+
+            </div>
+          `,
+          showConfirmButton: true,
+          confirmButtonText: '🚨 Report Fraud',
+          confirmButtonColor: 'var(--red)',
+          showCancelButton: true,
+          cancelButtonText: 'Close',
+          width: 540,
+          iconColor: 'red',
+          customClass: {
+            popup: 'imposter-popup'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Scrolls to your #contact section and closes popup
+            document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+    });
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   <!-- ===== AOS + JS ===== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="assets/js/scripts.js"></script>
