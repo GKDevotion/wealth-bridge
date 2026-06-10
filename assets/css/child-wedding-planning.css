@@ -1,37 +1,3 @@
-/* BREADCRUMB */
-.breadcrumb-bar {
-    background: var(--gray-50);
-    border-bottom: 1px solid var(--gray-200);
-    padding: 14px 0
-}
-
-.breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap
-}
-
-.breadcrumb a {
-    font-size: 13px;
-    color: var(--gray-500);
-    transition: color .2s
-}
-
-.breadcrumb a:hover {
-    color: var(--red)
-}
-
-.breadcrumb span {
-    font-size: 13px;
-    color: var(--gray-300)
-}
-
-.breadcrumb .current {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--red)
-}
 
 /* ============================================================
 HERO — CHILD WEDDING PLANNING
