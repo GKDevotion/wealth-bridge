@@ -441,7 +441,7 @@ button {
 .nav-link.nav-red {
     color: var(--red);
     font-weight: 600;
-    background: rgba(200, 16, 46, 0.06);
+    /* background: rgba(200, 16, 46, 0.06); */
     border-radius: var(--radius);
 }
 

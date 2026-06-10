@@ -125,7 +125,7 @@
                 <a class="nav-link nav-red"  href="#" id="sebiNavLink"><i class="fas fa-shield-alt"></i> SEBI</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link nav-red" href="#" id="imposterNavLink" style="color: var(--black); background: rgba(255,165,0,0.08)"><i class="fas fa-exclamation-triangle" style="color:orange"></i> Imposter Alert</a>
+                <a class="nav-link nav-red" href="#" id="imposterNavLink" style="color: var(--black);"><i class="fas fa-exclamation-triangle" style="color:orange"></i> Imposter Alert</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="pricing">Pricing</a>
