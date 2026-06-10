@@ -388,67 +388,7 @@
     </div>
   </div>
 </div>
-
-<!-- ═══ TESTIMONIALS ═══ -->
-<section class="section ev-testimonials">
-  <div class="container">
-    <div class="section-header center">
-      <div class="section-label reveal">What Attendees Say</div>
-      <h2 class="section-title reveal rd1">Real Feedback from <span>Real Attendees</span></h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"</div>
-        <p class="testi-text">The tax masterclass was a revelation. I had no idea I was leaving ₹1.8L on the table every year. Implemented the NPS 80CCD(1B) strategy the very next week. Best two hours I've spent this year.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">VK</div>
-          <div><div class="testi-name">Vikram Khanna</div><div class="testi-role">Senior Manager, Pune · Tax Masterclass</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd1">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"</div>
-        <p class="testi-text">I attended the Mumbai Investor Summit and came away with a completely restructured financial plan. Three speakers, three strategies, and one financial advisor consultation booking on the spot. Worth every rupee.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">DM</div>
-          <div><div class="testi-name">Deepa Murthy</div><div class="testi-role">IT Architect, Bengaluru · Annual Summit</div></div>
-        </div>
-      </div>
-      <div class="testi-card reveal rd2">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"</div>
-        <p class="testi-text">The Real Estate webinar was the most data-rich session I've attended online. Actual price trends, rental yield data, developer ratings — not just opinions. Helped me pick the right project in Whitefield.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">NP</div>
-          <div><div class="testi-name">Nikhil Pandey</div><div class="testi-role">Entrepreneur, Delhi · RE Webinar</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CTA ═══ -->
-<section class="ev-cta" id="contact">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="section-label reveal" style="justify-content:center">Your Seat is Waiting</div>
-      <h2 class="cta-title reveal rd1">Every WealthBridge Event is a<br><span>Step Closer to Financial Clarity.</span></h2>
-      <p class="cta-desc reveal rd2">Register for a free upcoming webinar or subscribe to get notified when we announce new events. Knowledge is the highest-returning investment you can make.</p>
-      <div class="cta-actions reveal rd2">
-        <a href="#upcoming" class="btn btn-primary">Browse All Events <i class="fas fa-arrow-right"></i></a>
-        <a href="contact" class="btn btn-ghost"><i class="fas fa-calendar-check"></i> Book Private Advisory</a>
-      </div>
-      <div class="cta-trust reveal rd3">
-        <div class="ct-item"><i class="fas fa-check-circle"></i> 120+ Events Hosted</div>
-        <div class="ct-item"><i class="fas fa-check-circle"></i> 48,000+ Attendees</div>
-        <div class="ct-item"><i class="fas fa-check-circle"></i> 96% Would Recommend</div>
-        <div class="ct-item"><i class="fas fa-check-circle"></i> Most Events Free</div>
-      </div>
-    </div>
-  </div>
-</section>
-
+ 
 <!-- ═══ RELATED ═══ -->
 <section class="section ev-related">
   <div class="container">
@@ -481,6 +421,27 @@
         <p>Skip the group session — get a one-on-one consultation with a WealthBridge advisor.</p>
         <span class="rc-link">Book Now <i class="fas fa-arrow-right"></i></span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="ev-cta" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="section-label reveal" style="justify-content:center">Your Seat is Waiting</div>
+      <h2 class="cta-title reveal rd1">Every WealthBridge Event is a<br><span>Step Closer to Financial Clarity.</span></h2>
+      <p class="cta-desc reveal rd2">Register for a free upcoming webinar or subscribe to get notified when we announce new events. Knowledge is the highest-returning investment you can make.</p>
+      <div class="cta-actions reveal rd2">
+        <a href="#upcoming" class="btn btn-primary">Browse All Events <i class="fas fa-arrow-right"></i></a>
+        <a href="contact" class="btn btn-ghost"><i class="fas fa-calendar-check"></i> Book Private Advisory</a>
+      </div>
+      <div class="cta-trust reveal rd3">
+        <div class="ct-item"><i class="fas fa-check-circle"></i> 120+ Events Hosted</div>
+        <div class="ct-item"><i class="fas fa-check-circle"></i> 48,000+ Attendees</div>
+        <div class="ct-item"><i class="fas fa-check-circle"></i> 96% Would Recommend</div>
+        <div class="ct-item"><i class="fas fa-check-circle"></i> Most Events Free</div>
+      </div>
     </div>
   </div>
 </section>
