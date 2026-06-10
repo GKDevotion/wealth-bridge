@@ -287,7 +287,7 @@
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--r-lg);
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
   position: relative;
@@ -420,6 +420,7 @@
 }
 .hv-card:hover .hv-read-link {
   gap: 8px;
+  color: var(--red);
 }
 
 /* floats */
@@ -565,7 +566,7 @@
   grid-template-columns: 1fr 400px;
   gap: 0;
   background: var(--black);
-  border-radius: var(--r-xl);
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--sh-lg);
   border: 1px solid rgba(200, 16, 46, 0.12);
