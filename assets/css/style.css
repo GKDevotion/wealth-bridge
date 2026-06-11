@@ -446,7 +446,7 @@ button {
 }
 
 .nav-link.nav-red:hover {
-    background: rgba(200, 16, 46, 0.12);
+    /* background: rgba(200, 16, 46, 0.12); */
 }
 
 .nav-link.nav-red::after {
