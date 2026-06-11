@@ -80,7 +80,7 @@
 
  
 <!-- CALC NAV (added after body for correct DOM order) -->
-<div class="calc-nav" style=" " id="calcNavBar">
+<div class="calc-nav" id="calcNavBar">
   <div class="container">
     <div class="calc-nav-inner">
       <button class="cnav-tab active" data-tab="sip" onclick="openCalc('sip',null);this.classList.add('active')"><i class="fas fa-chart-line"></i> SIP Returns</button>
@@ -1060,15 +1060,5 @@ calcSWP();
 
 })();
 </script>
-
-<script>
-// Show nav bar after scroll past picker section
-window.addEventListener('scroll', function() {
-  var picker = document.getElementById('calculators');
-  var nav    = document.getElementById('calcNavBar');
-  if (picker) {
-    nav.style.display = window.scrollY > picker.offsetTop + picker.offsetHeight ? 'block' : 'none';
-  }
-});
-</script>
+ 
 <?php include_once ('elements/footer.php'); ?>
