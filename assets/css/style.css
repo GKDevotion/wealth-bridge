@@ -213,7 +213,7 @@ button {
 
 .btn-outline:hover {
     background: var(--red);
-    color: var(--white);
+    color: var(--white) !important;
     transform: translateY(-2px);
 }
 
