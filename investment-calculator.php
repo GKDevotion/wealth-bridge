@@ -76,8 +76,6 @@
     </div>
   </div>
 </section>
-
-
  
 <!-- CALC NAV (added after body for correct DOM order) -->
 <div class="calc-nav" id="calcNavBar">
@@ -174,7 +172,7 @@
           </div>
 
           <div class="result-actions">
-            <button class="btn btn-outline btn-sm" onclick="window.print()"><i class="fas fa-download"></i> Save Results</button>
+            <button class="btn btn-outline btn-sm"><i class="fas fa-download"></i> Save Results</button>
             <a href="contact" class="btn btn-primary btn-sm">Get Personalised Plan <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="advisor-nudge">
@@ -256,7 +254,7 @@
             </div>
           </div>
           <div class="result-actions">
-            <button class="btn btn-outline btn-sm" onclick="window.print()"><i class="fas fa-download"></i> Save Results</button>
+            <button class="btn btn-outline btn-sm"><i class="fas fa-download"></i> Save Results</button>
             <a href="contact" class="btn btn-primary btn-sm">Get Personalised Plan <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="advisor-nudge">
@@ -325,7 +323,7 @@
             <div style="font-size:12.5px;color:var(--gray-600);line-height:1.65">Adding a 10% annual step-up to this SIP reduces the <em>effective monthly burden today</em> — while building significantly more corpus over time.</div>
           </div>
           <div class="result-actions">
-            <button class="btn btn-outline btn-sm" onclick="window.print()"><i class="fas fa-download"></i> Save Results</button>
+            <button class="btn btn-outline btn-sm""><i class="fas fa-download"></i> Save Results</button>
             <a href="contact" class="btn btn-primary btn-sm">Build Your Goal Plan <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="advisor-nudge">
@@ -406,7 +404,7 @@
           </div>
 
           <div class="result-actions">
-            <button class="btn btn-outline btn-sm" onclick="window.print()"><i class="fas fa-download"></i> Save Results</button>
+            <button class="btn btn-outline btn-sm"><i class="fas fa-download"></i> Save Results</button>
             <a href="tax-efficient-investment" class="btn btn-primary btn-sm">See Tax Strategy <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="advisor-nudge">
@@ -482,7 +480,7 @@
             <div style="display:flex;flex-direction:column;gap:7px" id="retAssumptions"></div>
           </div>
           <div class="result-actions">
-            <button class="btn btn-outline btn-sm" onclick="window.print()"><i class="fas fa-download"></i> Save Results</button>
+            <button class="btn btn-outline btn-sm"><i class="fas fa-download"></i> Save Results</button>
             <a href="contact" class="btn btn-primary btn-sm">Build Retirement Plan <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="advisor-nudge">
@@ -551,7 +549,7 @@
             <div style="font-size:12.5px;color:var(--gray-500);line-height:1.7">Start with a smaller monthly withdrawal and increase by inflation only. Keeping the corpus invested in a balanced fund (50% equity, 50% debt) vs a pure debt fund can add 6-10 years to sustainability.</div>
           </div>
           <div class="result-actions">
-            <button class="btn btn-outline btn-sm" onclick="window.print()"><i class="fas fa-download"></i> Save Results</button>
+            <button class="btn btn-outline btn-sm"><i class="fas fa-download"></i> Save Results</button>
             <a href="contact" class="btn btn-primary btn-sm">Plan My Withdrawals <i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="advisor-nudge">
