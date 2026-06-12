@@ -41,6 +41,7 @@ RewriteRule ^our-history our-history.php?slug=$1 [L,QSA]
 RewriteRule ^our-approach our-approach.php?slug=$1 [L,QSA]
 RewriteRule ^leadership-team leadership-team.php?slug=$1 [L,QSA]
 RewriteRule ^who-we-serve who-we-serve.php?slug=$1 [L,QSA]
+RewriteRule ^vision-mission vision-mission.php?slug=$1 [L,QSA]
 RewriteRule ^client-testimonials client-testimonials.php?slug=$1 [L,QSA]
 
 #Resources
